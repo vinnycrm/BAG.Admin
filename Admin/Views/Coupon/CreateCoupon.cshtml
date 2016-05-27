@@ -1,0 +1,104 @@
+﻿@model BAG.Models.Coupons
+<div class="right_col" role="main">
+    <div class="row">&nbsp;&nbsp;
+        <div class="panel panel-default">
+            <div class="panel-heading" id="panelbackcolor">
+                <form class="navbar-form" role="search">
+                    <div class="input-group add-on  ">Create Coupon</div>
+                    <div class="input-group add-on pull-right " style="margin-bottom:-15px;">
+                        <button type="button" onclick="parent.location = '/Coupon/EditCupons'" class="btn btn-default">&nbsp;Edit&nbsp;</button>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("CreateNewCoupon", "Coupon", FormMethod.Post, new { enctype = "multipart/form-data"})){ 
+                    <div class="col-md-6">
+                        <div class="register-form">
+                            <div class="email col-md-10">
+                                <label>Coupon Name:</label>
+                                @Html.TextBoxFor(m => m.Coupon_Name, new { @class = "form-control", @placeholder = "Enter Coupon Name"})
+                            </div>
+                            <div class="email col-md-10">
+                                <label>Coupon Vender Name:</label>
+                                @Html.TextBoxFor(m => m.Coupon_VenderName, new { @class = "form-control", @placeholder = "Enter Coupon Vender Name" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label>Coupon Start Date:</label>
+                                @Html.TextBoxFor(m => m.Coupon_StartDate, new { @class = "form-control", @placeholder = "Select Coupon Start Date" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label>Coupon End Date:</label>
+                                @Html.TextBoxFor(m => m.Coupon_EndDate, new { @class = "form-control", @placeholder = "Select Coupon End Date" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="register-form">
+                            <div class="email col-md-10">
+                                <label>Description:</label>
+                                @Html.TextAreaFor(m => m.Coupon_Desc, new { @class = "form-control", @rows = "4", @placeholder = "Enter the short description of an Coupon" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label for="name">Cupon Status:&nbsp;</label>
+                                <div>
+                                    <label>@Html.RadioButtonFor(m => m.Coupon_Status, "1", new { @checked = true })&nbsp;Enable</label>&#09;&#09;
+                                    <label>@Html.RadioButtonFor(m => m.Coupon_Status, "0")&nbsp;Disable</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email col-md-10">
+                            <label for="email">Cupon Picture:</label><div class="clear"></div>
+                            <input type="file" name="CupImg" accept = "image/*" id="CupImg">
+                            <div id="dvPreview"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <br><label id="ErrMsg" class="warning red"></label><br>
+                        <input type="submit" value="Submit" class="btn btn-primary btn-md" onclick="return CouponValidate()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function CouponValidate() {
+        var Coupon_Name = document.getElementById("Coupon_Name");
+        var Coupon_VenderName = document.getElementById("Coupon_VenderName");
+        var Coupon_StartDate = document.getElementById("Coupon_StartDate");
+        var Coupon_EndDate = document.getElementById("Coupon_EndDate");
+        var Coupon_Desc = document.getElementById("Coupon_Desc");
+        var CupImg = document.getElementById("CupImg");
+        var ErrMsg = document.getElementById("ErrMsg");
+
+        if (Coupon_Name.value == "" || !isNaN(Coupon_Name.value)) {
+            ErrMsg.innerHTML = "Invalid Coupon Name...!"
+            Coupon_Name.focus();
+            return false;
+        }else if (Coupon_VenderName.value == "" || !isNaN(Coupon_VenderName.value)) {
+            ErrMsg.innerHTML = "Invalid Coupon Vender Name...!"
+            Coupon_VenderName.focus();
+            return false;
+        }else if (Coupon_StartDate.value == "") {
+            ErrMsg.innerHTML = "Invalid Coupon Start Date...!"
+            Coupon_StartDate.focus();
+            return false;
+        }else if (Coupon_EndDate.value == "") {
+            ErrMsg.innerHTML = "Invalid Coupon End Date...!"
+            Coupon_EndDate.focus();
+            return false;
+        }else if (Coupon_Desc.value == "" || !isNaN(Coupon_Desc.value)) {
+            ErrMsg.innerHTML = "Invalid Coupon Description...!"
+            Coupon_Desc.focus();
+            return false;
+        } else if (CupImg.value == "") {
+            ErrMsg.innerHTML = "Invalid Coupon Image...!"
+            CupImg.focus();
+            return false;
+        }else {
+            ErrMsg.innerHTML = ""
+            return true;
+        }
+    }
+</script>

@@ -1,0 +1,132 @@
+﻿@model BAG.Models.A_ModelGroupsList
+@using (Html.BeginForm("CreateSubAdmin", "SubAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="right_col" role="main">
+        <div class="row">
+            &nbsp;&nbsp;
+            <div class="panel panel-default">
+                <div class="panel-heading" id="panelbackcolor">
+                    <form class="navbar-form" role="search">
+                        <div class="input-group add-on  ">
+                            Create Sub Adminstrator
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <div class="col-md-6">
+                            <div class="register-form">
+                                <div class="email col-md-10">
+                                    <label for="email">First Name:</label><div class="clear"></div>
+                                    @Html.TextBoxFor(m => m.MasterData.First_Name, new { @class = "form-control", @placeholder = "First Name" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label for="email">Last Name:</label><div class="clear"></div>
+                                    @Html.TextBoxFor(m => m.MasterData.Last_Name, new { @class = "form-control", @placeholder = "Last Name" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label for="email">Email Address:</label><div class="clear"></div>
+                                    @Html.TextBoxFor(m => m.LoginData.Email_ID, new { @class = "form-control", @placeholder = "Email Address" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label for="email">Password:</label><div class="clear"></div>
+                                    @Html.PasswordFor(m => m.LoginData.Pwd, new { @class = "form-control", @placeholder = "Password" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label for="email">Confirm Password:</label><div class="clear"></div>
+                                    <input type="password" id="ConPass" name="ConPass" class="form-control" placeholder="Conformation Password"> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="register-form">
+                                <div class="email col-md-10">
+                                    <label for="email">Phone Number:</label><div class="clear"></div>
+                                    @Html.TextBoxFor(m => m.LoginData.Mobile_Number, new { @class = "form-control", @placeholder = "Mobile Number" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label for="email">Gender:</label><div class="clear"></div>
+                                    <label>@Html.RadioButtonFor(m => m.MasterData.Gender, "Male", new { @checked = true })&nbsp;Male</label>
+                                    <label>@Html.RadioButtonFor(m => m.MasterData.Gender, "Female")&nbsp;Female</label>
+                                </div>
+                                <div class="email col-md-10">
+                                    <label>User Role:</label>
+                                    @Html.DropDownListFor(m => m.MasterData.Usr_role_Id, new SelectList(
+                                                new List<Object>{new { value = 0 , text = "Select Account Type"  },
+                                                                 new { value = 1 , text = "Administrator" },
+                                                                 new { value = 2 , text = "Sub Administrator" },
+                                                                 new { value = 3 , text = "User" },
+                                                                 new { value = 4 , text = "Vender" }}, "value", "text", 0), new { @class = "select2_single form-control", @tabindex = "-1", @autofocus = "autofocus" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label>Profile picture:</label>
+                                    <input type="file" name="imgFile" id="imgFile" accept="image/*" onchange="loadFile(event)" }) />
+                                    <img id="imgPreview" src="" alt="your Image Preview" height="100" width="100" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center" id="register-submit">
+                            <p class="warning red" id="ErrorMsg"></p>
+                            <br>
+                            <input type="submit" class="btn btn-primary btn-md" value="Create" onclick="return AddSubAdmin()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    function AddSubAdmin() {
+        var MasterData_First_Name = document.getElementById("MasterData_First_Name");
+        var MasterData_Last_Name = document.getElementById("MasterData_Last_Name");
+        var LoginData_Email_ID = document.getElementById("LoginData_Email_ID");
+        var LoginData_Pwd = document.getElementById("LoginData_Pwd");
+        var ConPass = document.getElementById("ConPass");
+        var LoginData_Mobile_Number = document.getElementById("LoginData_Mobile_Number");
+        var imgFile = document.getElementById("imgFile");
+
+        var errmsg = document.getElementById("ErrorMsg");
+
+        if (MasterData_First_Name.value == "" || !isNaN(MasterData_First_Name.value)) {
+            errmsg.innerHTML = "Invalid First Name..!";
+            MasterData_First_Name.focus();
+            return false;
+        } else if (MasterData_Last_Name.value == "" || !isNaN(MasterData_Last_Name.value)) {
+            errmsg.innerHTML = "Invalid Last Name..!";
+            MasterData_Last_Name.focus();
+            return false;
+        } else if (LoginData_Email_ID.value == "" || !isNaN(LoginData_Email_ID.value)) {
+            errmsg.innerHTML = "Invalid Email Id..!";
+            LoginData_Email_ID.focus();
+            return false;
+        } else if (LoginData_Pwd.value == "" || !isNaN(LoginData_Pwd.value)) {
+            errmsg.innerHTML = "Invalid Password..!";
+            LoginData_Pwd.focus();
+            return false;
+        } else if (LoginData_Pwd.value != ConPass.value ) {
+            errmsg.innerHTML = "Password and Conformation Password should be same..!";
+            LoginData_Pwd.value = "";
+            ConPass.value = "";
+            LoginData_Pwd.focus();
+            return false;
+        } else if (LoginData_Mobile_Number.value == "" || isNaN(LoginData_Mobile_Number.value)) {
+            errmsg.innerHTML = "Invalid Mobile Number..!";
+            LoginData_Mobile_Number.focus();
+            return false;
+        } else if (imgFile.value == "") {
+            errmsg.innerHTML = "Invalid Profile Picture..!";
+            imgFile.focus();
+            return false;
+        } else {
+            errmsg.innerHTML = "";
+            return true;
+        }
+    }
+    function loadFile(event) {
+        var output = document.getElementById('imgPreview');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

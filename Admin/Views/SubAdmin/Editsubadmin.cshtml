@@ -1,0 +1,129 @@
+﻿@model BAG.Models.SubAdmin
+@using (Html.BeginForm("UpdateSubAdmin", "SubAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.TextBoxFor(m => m.Usr_Id, new { @type = "hidden" })
+    <div class="right_col" role="main">
+        <div class="row">
+            &nbsp;&nbsp;
+            <div class="panel panel-default">
+                <div class="panel-heading" id="panelbackcolor">
+                    <form class="navbar-form" role="search">
+                        <div class="input-group add-on  ">
+                            Edit @Model.First_Name @Model.Last_Name Information
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <div class="col-md-6">
+                            <div class="register-form">
+                                <div class="email col-md-10">
+                                    <label for="email">First Name:</label><div class="clear"></div>
+                                    @Html.TextBoxFor(m => m.First_Name, new { @class = "form-control", @placeholder = "First Name" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label for="email">Last Name:</label><div class="clear"></div>
+                                    @Html.TextBoxFor(m => m.Last_Name, new { @class = "form-control", @placeholder = "Last Name" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label for="email">Email Address:</label><div class="clear"></div>
+                                    @Html.TextBoxFor(m => m.Alt_Email_Id, new { @class = "form-control", @placeholder = "Email Address" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="register-form">
+                                <div class="email col-md-10">
+                                    <label for="email">Phone Number:</label><div class="clear"></div>
+                                    @Html.TextBoxFor(m => m.Mobile_Number, new { @class = "form-control", @placeholder = "Mobile Number" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label for="email">Gender:</label><div class="clear"></div>
+                                    @if (Model.Gender == "Male")
+                                    {
+                                        <label>@Html.RadioButtonFor(m => m.Gender, "Male", new { @checked = true })&nbsp;Male</label>
+                                        <label>@Html.RadioButtonFor(m => m.Gender, "Female")&nbsp;Female</label>
+                                    }
+                                    else
+                                    {
+                                        <label>@Html.RadioButtonFor(m => m.Gender, "Male")&nbsp;Male</label>
+                                        <label>@Html.RadioButtonFor(m => m.Gender, "Female", new { @checked = true })&nbsp;Female</label>
+                                    }
+                                </div>
+                                <div class="email col-md-10">
+                                    <label>User Role:</label>
+                                    @Html.DropDownListFor(m => m.Usr_role_Id, new SelectList(
+                                                new List<Object>{new { value = 0 , text = "Select Account Type"  },
+                                                                 new { value = 1 , text = "Administrator" },
+                                                                 new { value = 2 , text = "Sub Administrator" },
+                                                                 new { value = 3 , text = "User" },
+                                                                 new { value = 4 , text = "Vender" }}, "value", "text", 0), new { @class = "select2_single form-control", @tabindex = "-1", @autofocus = "autofocus" })
+                                </div>
+                                <div class="email col-md-10">
+                                    <label>Profile picture:</label>
+                                    <input type="file" id="newImg" name="newImg" accept="image/*" onchange="loadFile(event)" />
+                                    <img id="imgPreview" src='@Model.Media_File_Location' alt="your Image Preview" height="100" width="100" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center" id="register-submit">
+                            <p class="warning red" id="ErrorMsg"></p>
+                            <br>
+                            <input type="submit" class="btn btn-primary btn-md" value="Update" onclick="return UpdateSubAdmin()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    function UpdateSubAdmin() {
+        var First_Name = document.getElementById("First_Name");
+        var Last_Name = document.getElementById("Last_Name");
+        var Alt_Email_Id = document.getElementById("Alt_Email_Id");
+        var Mobile_Number = document.getElementById("Mobile_Number");
+        var Usr_role_Id = document.getElementById("Usr_role_Id");
+        var imgFile = document.getElementById("imgFile");
+        var errmsg = document.getElementById("ErrorMsg");
+
+        if (First_Name.value == "" || !isNaN(First_Name.value)) {
+            errmsg.innerHTML = "Invalid First Name..!";
+            First_Name.focus();
+            return false;
+        } else if (MasterData_Last_Name.value == "" || !isNaN(MasterData_Last_Name.value)) {
+            errmsg.innerHTML = "Invalid Last Name..!";
+            MasterData_Last_Name.focus();
+            return false;
+        } else if (Last_Name.value == "" || !isNaN(Last_Name.value)) {
+            errmsg.innerHTML = "Invalid Email Id..!";
+            Last_Name.focus();
+            return false;
+        } else if (Alt_Email_Id.value == "" || !isNaN(Alt_Email_Id.value)) {
+            errmsg.innerHTML = "Invalid Email Id..!";
+            Alt_Email_Id.focus();
+            return false;
+        } else if (Mobile_Number.value == "" || isNaN(Mobile_Number.value)) {
+            errmsg.innerHTML = "Invalid Mobile Number..!";
+            Mobile_Number.focus();
+            return false;
+        } else if (Usr_role_Id.value == 0) {
+            errmsg.innerHTML = "Invalid Account Type..!";
+            Usr_role_Id.focus();
+            return false;
+        } else if (imgFile.value == "") {
+            errmsg.innerHTML = "Invalid Profile Picture..!";
+            imgFile.focus();
+            return false;
+        } else {
+            errmsg.innerHTML = "";
+            return true;
+        }
+    }
+    function loadFile(event) {
+        var output = document.getElementById('imgPreview');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

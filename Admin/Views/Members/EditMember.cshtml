@@ -1,0 +1,131 @@
+﻿@model BAG.Models.GroupsGroup
+<div class="right_col" role="main">
+
+    <div class="row">
+        &nbsp;&nbsp;
+        <div class="panel panel-default">
+            <div class="panel-heading" id="panelbackcolor">
+                <form class="navbar-form" role="search">
+                    <div class="input-group add-on  ">
+                        Edit @Model.personalInfo.FirstName @Model.personalInfo.LastName Profile
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("UpdateMember", "Members", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="col-md-6">
+                        <div class="register-form">
+                            <div class="email col-md-10">
+                                @Html.TextBoxFor(m => m.personalInfo.Uid, new { @type = "hidden" })
+                                <label for="email">First Name:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.personalInfo.FirstName, new { @class = "form-control", @placeholder = "Enter Member First Name" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label for="email">Last Name:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.personalInfo.LastName, new { @class = "form-control", @placeholder = "Enter Member Last Name" })
+                            </div>
+                            <div class="name col-md-10">
+                                <label for="name">Gender&nbsp;</label>
+                                <div>
+                                    @if (Model.personalInfo.Gender == "Male")
+                                    {
+                                        <label>@Html.RadioButtonFor(m => m.personalInfo.Gender, "Male", new { @checked = true })&nbsp;Male</label>
+                                        <label>@Html.RadioButtonFor(m => m.personalInfo.Gender, "Female")&nbsp;Female</label>
+                                    }
+                                    else
+                                    {
+                                        <label>@Html.RadioButtonFor(m => m.personalInfo.Gender, "Male")&nbsp;Male</label>
+                                        <label>@Html.RadioButtonFor(m => m.personalInfo.Gender, "Female", new { @checked = true })&nbsp;Female</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="email col-md-10">
+                                <label for="email">Date Of Birth:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.personalInfo.Dob, new { @class = "form-control", @placeholder = "Date Of Birth"})
+                            </div>
+                            <div class="email col-md-10">
+                                <label for="email">User Ratings:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.personalInfo.Ratings, new { @class = "form-control", @placeholder = "Rate the User" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="register-form">
+                            <div class="email col-md-10">
+                                <label for="email ">Email Id:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.personalInfo.EmailId, new { @class = "form-control", @placeholder = "Enter Member Email id" })
+                            </div>
+                            <div class="name col-md-10">
+                                <label for="name">Is Married?&nbsp;</label>
+                                <div>
+                                    @if (Model.personalInfo.IsMarried == 1)
+                                    {
+                                        <label>@Html.RadioButtonFor(m => m.personalInfo.IsMarried, 1, new { @checked = true })&nbsp;Married</label>
+                                        <label>@Html.RadioButtonFor(m => m.personalInfo.IsMarried, 0)&nbsp;UnMarried</label>
+                                    }
+                                    else
+                                    {
+                                        <label>@Html.RadioButtonFor(m => m.personalInfo.IsMarried, 1)&nbsp;Married</label>
+                                        <label>@Html.RadioButtonFor(m => m.personalInfo.IsMarried, 0, new { @checked = true })&nbsp;UnMarried</label>
+                                    }
+                                </div>
+                            </div>
+                            <div id="avsdate" class="email col-md-10">
+                                <label for="Aniversary Date">Aniversary Date:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.personalInfo.WedAnvrsry, new { @class = "form-control", @placeholder = "Wedding Anniversary Date" })
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="col-md-12 text-center" id="register-submit">
+                        <p class="warning red" id="ErrorMsg"></p> <br>
+                        <input type="submit" value="Update" , class="btn btn-primary btn-md" onclick="return UpdateMemberValidate()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
+                    </div>
+                    }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function UpdateMemberValidate() {
+        var personalInfo_FirstName = document.getElementById("personalInfo_FirstName");
+        var personalInfo_LastName = document.getElementById("personalInfo_LastName");
+        var personalInfo_Dob = document.getElementById("personalInfo_Dob");
+        var personalInfo_WedAnvrsry = document.getElementById("personalInfo_WedAnvrsry");
+        var img = document.getElementById("imgFile");
+
+        var ErrorMsg = document.getElementById("ErrorMsg");
+
+        if (personalInfo_FirstName.value == "" || !isNaN(personalInfo_FirstName.value)) {
+            ErrorMsg.innerHTML = "Invalid First Name..!";
+            personalInfo_FirstName.focus();
+            return false;
+        } else if (personalInfo_LastName.value == "" || !isNaN(personalInfo_LastName.value)) {
+            ErrorMsg.innerHTML = "Invalid Last Name..!";
+            personalInfo_LastName.focus();
+            return false;
+        } else if (personalInfo_Dob.value == "") {
+            ErrorMsg.innerHTML = "Invalid Date Of Birth..!";
+            personalInfo_Dob.focus();
+            return false;
+        } else if (personalInfo_WedAnvrsry.value == "") {
+            ErrorMsg.innerHTML = "Invalid Wedding Anniversary Date..!";
+            personalInfo_WedAnvrsry.focus();
+            return false;
+        } else if (img.value == "") {
+            errmsg.innerHTML = "Invalid Member Profile Picture..!";
+            img.focus();
+            return false;
+        } else {
+            ErrorMsg.innerHTML = "";
+            return true;
+        }
+    }
+</script>
+<script>
+  $(function() {
+      $("#personalInfo_Dob").datepicker();
+  });
+</script>

@@ -1,0 +1,118 @@
+﻿@model BAG.Models.Admin_Tickets
+@{
+    ViewBag.Title = "RiseTicket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="row">&nbsp;&nbsp;
+        <div class="panel panel-default">
+            <div class="panel-heading" id="panelbackcolor">
+                <form class="navbar-form" role="search">
+                    <div class="input-group add-on  ">
+                        Submit a Ticket
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("AddTicket", "Tickets", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return AddTicketSuccess  ()" }))
+                {
+                    <div class="col-md-6">
+                        <div class="register-form">
+                            <div class="email col-md-10">
+                                <label>Your ticket id:</label>
+                                <input type="text" class="form-control " name="ticketId" id = "ticketId" placeholder="Not Yet Generated" readonly>
+                            </div>
+                            <div class="email col-md-10">
+                                <label>Ticket Priority:</label>
+                                @Html.DropDownListFor(m => m.Ticket_Priority, new SelectList(
+                                                new List<Object>{new { value = 0 , text = "Select Priority"  },
+                                                                 new { value = 1 , text = "Normal" },
+                                                                 new { value = 2 , text = "Medium" },
+                                                                 new { value = 3 , text = "High" },
+                                                                 new { value = 4 , text = "Emergency" }}, "value", "text", 0), new { @class = "select2_single form-control", @tabindex = "-1", @autofocus = "autofocus" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label>Name:</label>
+                                @Html.TextBoxFor(m => m.ContactPerson_name, new { @class = "form-control", @placeholder = "Enter your name" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label>Email:</label>
+                                @Html.TextBoxFor(m => m.ContactEmaiId, new { @class = "form-control", @placeholder = "Enter your Email Id" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="register-form">
+                            <div class="email col-md-10">
+                                <label>Mobile Number</label>
+                                @Html.TextBoxFor(m => m.ContactMobileNumber, new { @class = "form-control", @placeholder = "Enter your 10 Digit Mobile number" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label>Issue Description</label>
+                                @Html.TextAreaFor(m => m.Issue_Description, new {@class= "form-control", @rows="4", @placeholder = "Enter the short description of an issue" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label>Image Upload:</label>
+                                @Html.TextBoxFor(m => m.Issue_PicutureUrl, new { type = "file" })
+                                <div id="dvPreview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center" id="register-submit">
+                        <br />
+                        <label id="errMsg" class="warning"></label>
+                        <br/>
+                        <input  type="submit" value="Submit", class="btn btn-primary btn-md" onclick="return TicketValidationForm()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href='@Url.Action("Index", "Tickets")' type="button" class="btn btn-default buttoncolor">Cancel</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function TicketValidationForm() {
+        var VTicket_Priority = document.getElementById("Ticket_Priority");
+        var VContactPerson_name = document.getElementById("ContactPerson_name");
+        var VContactEmaiId = document.getElementById("ContactEmaiId");
+        var ContactMobileNumber = document.getElementById("ContactMobileNumber");
+        var Issue_Description = document.getElementById("Issue_Description");
+        var VerrMsg = document.getElementById("errMsg");
+
+        if (VTicket_Priority.value == 0) {
+            VerrMsg.innerHTML = "Select Priority Of Ticket";
+            VTicket_Priority.focus();
+            return false;
+        }
+        else if (VContactPerson_name.value.trim() == "") {
+            VerrMsg.innerHTML = "Enter the Contact Persion Name";
+            VContactPerson_name.focus();
+            return false;
+        }
+        else if (!isNaN(VContactPerson_name.value.trim() - 0)) {
+            VerrMsg.innerHTML = "Number is not allowed as a Contact Persion Name";
+            VContactPerson_name.focus();
+            return false;
+        }
+        else if (VContactEmaiId.value.trim() == "") {
+            VerrMsg.innerHTML = "Enter the Valid Email Id";
+            VContactEmaiId.focus();
+            return false;
+        }
+        else if (ContactMobileNumber.value.trim() == "" || isNaN(ContactMobileNumber.value.trim() - 0) || ContactMobileNumber.value.trim().length != 10) {
+            VerrMsg.innerHTML = "Enter Valid 10 Digit Mobile number";
+            ContactMobileNumber.focus();
+            return false;
+        }
+        else if (Issue_Description.value.trim() == "") {
+            VerrMsg.innerHTML = "Short description of an issue can't be an empty.";
+            Issue_Description.focus();
+            return false;
+        }
+        else {
+            VerrMsg.innerHTML = "";
+            return true;
+        }
+    }
+</script>

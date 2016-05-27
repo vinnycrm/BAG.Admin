@@ -1,0 +1,377 @@
+﻿@model BAG.Models.EventsGroup
+<div class="modal fade" id="block" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Comment</h4>
+            </div>
+            <div class="modal-body">
+                <div class="blockmessage msg msg-info"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Comment ?</div><br>
+                <button type="button" class="btn btn-success btn-md col-md-offset-2"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>&nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-danger btn-md" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="edit" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Block Event</h4>
+            </div>
+            <div class="modal-body">
+                <div class="blockmessage msg msg-info"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to block this Event ?</div>
+                <br>
+                <button type="button" class="btn btn-success btn-md col-md-offset-2"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>&nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-danger btn-md" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="right_col" role="main">
+    <div class="row top_tiles">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-user fa-5x"></i></div>
+                <div class="count">@Model.eventDetails.Event_Organizer</div>
+                <h3>Organizer</h3>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-inr fa-5x"></i></div>
+                <div class="count">@Model.eventDetails.Event_TotalFund</div>
+                <h3>Total Fund</h3>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-users fa-5x"></i></div>
+                <div class="count">@Model.eventDetails.Event_TotalContributors</div>
+                <h3>Contributers</h3>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-support fa-5x"></i></div>
+                <div class="count">@Model.eventDetails.Event_TotalComments</div>
+                <h3>Comments</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom:10px;background-color:white;">
+        <div class="col-md-12">
+            <div class="col-md-4 bg_blur col-xs-12">
+                <ul class="event-list picture_mob">
+                    <li style="list-style:none;">
+                        <time datetime="2014-02-25 2000" style="background-color:#5A738E; ">
+                            <span class="day">@Model.eventDetails.Event_StartDate.ToString("dd")</span>
+                            <span class="month">@Model.eventDetails.Event_StartDate.ToString("MMM")</span>
+                            <span class="year">2014</span>
+                            <span class="time">8:00 PM</span>
+                        </time>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8  col-xs-12">
+                <div class="header event_align">
+                    <h1>@Model.eventDetails.Event_Name</h1>
+                    <h4>at @Model.eventDetails.Event_Location</h4>
+                    <span>@Model.eventDetails.Event_Desc</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-default panelborder">
+            <div class="panel-heading panelcolor" id="panelbackcolor">
+                <form class="form" role="search">
+                    <span style="position:relative;top:8px;">Event Details</span>
+                    <div class="input-group add-on pull-right btnpositoin" style="position:relative;top:8px;">
+                        <a data-toggle="modal" data-target="#edit" type="button"  href="" class="btn btn-default">&nbsp; Block This Event</a>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-3 col-xs-12">
+                    <div class="panel panel-default sidebar-menu with-icons" style="border:none;">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                @if(Model.eventWishList.Count() > 0)
+                                { 
+                                    foreach (var item in Model.eventWishList)
+                                    {
+                                         <div class="list-group-item">
+                                            <a style="text-decoration:none; text-decoration:none;" href='@Url.Action("EventProfile", "Events", new { Id = item.WishList_Id})'><i class="fa fa-tasks fa-fw "></i> @item.WishList_Name</a>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="list-group-item">
+                                        <strong>WishList Empty</strong> 
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-xs-12" style="background-color:white;">
+                    <ul class="nav nav-tabs kin-tabs">
+
+                        <li class="active">
+                            <a aria-expanded="false" href="#settings1" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Contributers</a>
+
+                        </li>
+                        <li>
+                            <a aria-expanded="true" href="#refund1" data-toggle="tab"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</a>
+
+                        </li>
+
+
+                        <li class="">
+                            <a aria-expanded="true" href="#refund2" data-toggle="tab"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;Comments</a>
+
+                        </li>
+
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content tabcolor">
+                        <div class="tab-pane fade active in" id="settings1">
+                            <br>
+                            <!--end of .table-responsive-->
+
+                            <div class="panel-body">
+                                <div class="row">
+
+                                    <div class="table-responsive">
+
+                                        <table class="table table-bordered table-hover" style="background-color:white;">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>Sl No.</th>
+                                                    <th>E-mail</th>
+                                                    <th>Item Name</th>
+                                                    <th>Amount</th>
+                                                    <th>Contribute Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th># 1</th>
+                                                    <td>supraj@gmail.com</td>
+                                                    <td>Mobile,laptop</td>
+                                                    <td>1000</td>
+                                                    <td>2/2/2010</td>
+                                                    <td>
+                                                        <span class="label label-success">Recived</span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th># 1</th>
+                                                    <td>supraj@gmail.com</td>
+                                                    <td>Mobile</td>
+                                                    <td>1000</td>
+                                                    <td>2/2/2010</td>
+                                                    <td>
+                                                        <span class="label label-info">Onhold</span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th># 1</th>
+                                                    <td>supraj@gmail.com</td>
+                                                    <td>Mobile,laptop</td>
+                                                    <td>1000</td>
+                                                    <td>2/2/2010</td>
+                                                    <td>
+                                                        <span class="label label-success">Recived</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th># 1</th>
+                                                    <td>supraj@gmail.com</td>
+                                                    <td>Car</td>
+                                                    <td>1000</td>
+                                                    <td>2/2/2010</td>
+                                                    <td>
+                                                        <span class="label label-success">Recived</span>
+                                                    </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+
+                                        </table>
+                                    </div><!--end of .table-responsive-->
+
+
+
+
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="tab-pane fade " id="refund1">
+                            <br>
+                            @using (Html.BeginForm("UpdateEvent", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.TextBoxFor(m => m.eventDetails.Event_id, new { @type = "hidden" })
+                                <div class="col-md-6">
+                                    <div class="register-form">
+                                        <div class="email col-md-10">
+                                            <label for="email">Event Name:</label><div class="clear"></div>
+                                            @Html.TextBoxFor(m => m.eventDetails.Event_Name, new { @class = "form-control", @placeholder = "Enter Event Name" })
+                                        </div>
+                                        <div class="email col-md-10">
+                                            <label for="email">Event Location:</label><div class="clear"></div>
+                                            @Html.TextBoxFor(m => m.eventDetails.Event_Location, new { @class = "form-control", @placeholder = "Enter Event Location" })
+                                        </div>
+                                        <div class="email col-md-10">
+                                            <label for="name">Event Status:&nbsp;</label>
+                                            <div>
+                                                @if (Model.eventDetails.Event_Status == "1")
+                                                {
+                                                    <label>@Html.RadioButtonFor(m => m.eventDetails.Event_Status, "1", new { @checked = true })&nbsp;Open</label>
+                                                    <label>@Html.RadioButtonFor(m => m.eventDetails.Event_Status, "0")&nbsp;Closed</label>
+                                                }
+                                                else
+                                                {
+                                                    <label>@Html.RadioButtonFor(m => m.eventDetails.Event_Status, "1")&nbsp;Open</label>
+                                                    <label>@Html.RadioButtonFor(m => m.eventDetails.Event_Status, "0", new { @checked = true })&nbsp;Closed</label>
+                                                }
+                                            </div>
+                                        </div>
+                                            <div class="email col-md-10">
+                                                <label for="email">Start date:</label><div class="clear"></div>
+                                                @Html.TextBoxFor(m => m.eventDetails.Event_StartDate, new { @class = "form-control", @placeholder = "Enter Start Date" })
+                                            </div>
+                                        <div class="email col-md-10">
+                                            <label for="email">Ending date:</label><div class="clear"></div>
+                                            @Html.TextBoxFor(m => m.eventDetails.Event_EndDate, new { @class = "form-control", @placeholder = "Enter End Date" })
+                                        </div>
+                                        </div>
+                                    </div>
+                                <div class="col-md-6">
+                                    <div class="register-form">
+                                        <div class="email col-md-10">
+                                            <label for="email">Event Description:</label><div class="clear"></div>
+                                            @Html.TextAreaFor(m => m.eventDetails.Event_Desc, new { @class = "form-control search-query form-control", @rows = "3", @placeholder = "Enter the short description of an Event" })
+                                        </div>
+                                        <div class="email col-md-10">
+                                            <label for="email">Event Picture:</label><div class="clear"></div>
+                                            <input type="file" id="newImg" name="newImg" accept="image/*" onchange="loadFile(event)" />
+                                            <img id="imgPreview" src='@Model.eventDetails.Event_PicUrl' alt="your Image Preview" height="100" width="100" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center" id="register-submit" style="position:relative;top:10px;">
+                                    <input type="submit" value="Update" class="btn btn-primary btn-md" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="tab-pane fade" id="refund2">
+                            <div class="row">
+                                <br>
+                                <div class="col-md-8 col-md-offset-1">
+
+                                    <div class="comments-list">
+                                        <div class="media">
+                                            <p class="pull-right"><small>5 days ago</small></p>
+                                            <a class="media-left" href="#">
+                                                <img src="http://lorempixel.com/40/40/people/1/">
+                                            </a>
+                                            <div class="media-body">
+
+                                                <h4 class="media-heading user_name">Baltej Singh</h4>
+                                                Wow! this is really great.Wow! this is really great.
+                                                Wow! this is really great.Wow! this is really great.
+
+
+                                            </div>
+                                            <p data-toggle="modal" data-target="#block" id="mousecursor" class="pull-right"><span class="glyphicon glyphicon-trash"></span></p>
+                                        </div>
+                                        <div class="media">
+                                            <p class="pull-right"><small>5 days ago</small></p>
+                                            <a class="media-left" href="#">
+                                                <img src="http://lorempixel.com/40/40/people/2/">
+                                            </a>
+                                            <div class="media-body">
+
+                                                <h4 class="media-heading user_name">Baltej Singh</h4>
+                                                Wow! this is really great.
+
+
+                                            </div>
+                                            <p id="mousecursor" class="pull-right"><span class="glyphicon glyphicon-trash"></span></p>
+                                        </div>
+                                        <div class="media">
+                                            <p class="pull-right"><small>5 days ago</small></p>
+                                            <a class="media-left" href="#">
+                                                <img src="http://lorempixel.com/40/40/people/3/">
+                                            </a>
+                                            <div class="media-body">
+
+                                                <h4 class="media-heading user_name">Baltej Singh</h4>
+                                                Wow! this is really great.
+
+
+                                            </div>
+                                            <p data-toggle="modal" data-target="#block" id="mousecursor" class="pull-right"><span class="glyphicon glyphicon-trash"></span></p>
+                                        </div>
+                                        <div class="media">
+                                            <p class="pull-right"><small>5 days ago</small></p>
+                                            <a class="media-left" href="#">
+                                                <img src="http://lorempixel.com/40/40/people/4/">
+                                            </a>
+                                            <div class="media-body">
+
+                                                <h4 class="media-heading user_name">Baltej Singh</h4>
+                                                Wow! this is really great.
+
+
+                                            </div>
+                                            <p data-toggle="modal" data-target="#block" id="mousecursor" class="pull-right"><span class="glyphicon glyphicon-trash"></span></p>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loadFile(event) {
+        var output = document.getElementById('imgPreview');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
+

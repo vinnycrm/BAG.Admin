@@ -1,0 +1,78 @@
+﻿@model BAG.Models.Coupons
+<div class="right_col" role="main">
+    <div class="row">&nbsp;&nbsp;
+        <div class="panel panel-default">
+            <div class="panel-heading" id="panelbackcolor">
+                <form class="navbar-form" role="search">
+                    <div class="input-group add-on  ">
+                        Edit Cupons
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("UpdateCoupon", "Coupon", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.TextBoxFor(m => m.Coupon_id, new { @type = "hidden" })
+                    <div class="col-md-6">
+                        <div class="test">
+                            <div class="email col-md-10">
+                                <label for="Campian Name">Coupon Name:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.Coupon_Name, new { @class = "form-control", @placeholder = "Enter Coupon Name" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label for="email">Start Date:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.Coupon_StartDate, new { @class = "form-control", @placeholder = "Enter Start Date" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label for="email">End Date:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.Coupon_EndDate, new { @class = "form-control", @placeholder = "Enter End Date" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label for="email">Vendor Name:</label><div class="clear"></div>
+                                @Html.TextBoxFor(m => m.Coupon_VenderName, new { @class = "form-control", @placeholder = "Enter Vender Name" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="test">
+                            <div class="email col-md-10">
+                                <label for="email">Description:</label><div class="clear"></div>
+                                @Html.TextAreaFor(m => m.Coupon_Desc, new { @class = "form-control search-query form-control", @rows = "3", @placeholder = "Enter the short description of an Coupon" })
+                            </div>
+                            <div class="email col-md-10">
+                                <label for="name">Cupon Status&nbsp;</label>
+                                <div>
+                                    @if (Model.Coupon_Status == "1")
+                                    {
+                                        <label>@Html.RadioButtonFor(m => m.Coupon_Status, "1", new { @checked = true })&nbsp;Open</label>
+                                        <label>@Html.RadioButtonFor(m => m.Coupon_Status, "0")&nbsp;Closed</label>
+                                    }
+                                    else
+                                    {
+                                        <label>@Html.RadioButtonFor(m => m.Coupon_Status, "1")&nbsp;Open</label>
+                                        <label>@Html.RadioButtonFor(m => m.Coupon_Status, "0", new { @checked = true })&nbsp;Closed</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email col-md-10">
+                            @Html.TextBoxFor(m => m.Coupon_PicUrl, new { type = "file", id = "newImg", name = "newImg", accept = "image/*", onchange = "loadFile(event)" })
+                            <img id="imgPreview" src='@Model.Coupon_PicUrl' alt="your Image Preview" height="100" width="100" />
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center" id="register-submit">
+                        <input type="submit" value="Update" class="btn btn-primary btn-md"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loadFile(event) {
+        var output = document.getElementById('imgPreview');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

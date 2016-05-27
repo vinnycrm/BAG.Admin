@@ -1,0 +1,10 @@
+C:\Users\vinay\Desktop\BrewAdmin\BAG.Models\bin\Debug\BAG.Models.dll
+C:\Users\vinay\Desktop\BrewAdmin\BAG.Models\bin\Debug\BAG.Models.pdb
+C:\Users\vinay\Desktop\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.csprojResolveAssemblyReference.cache
+C:\Users\vinay\Desktop\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.dll
+C:\Users\vinay\Desktop\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.pdb
+D:\c#\BrewAdmin\BAG.Models\bin\Debug\BAG.Models.dll
+D:\c#\BrewAdmin\BAG.Models\bin\Debug\BAG.Models.pdb
+D:\c#\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.dll
+D:\c#\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.pdb
+D:\c#\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.csprojResolveAssemblyReference.cache

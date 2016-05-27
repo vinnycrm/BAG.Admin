@@ -1,0 +1,337 @@
+﻿@model BAG.Models.GroupsGroup
+<div class="modal fade" id="delete" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 8px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5>Block and report</h5>
+            </div>
+            <div class="modal-body">
+                <div class="msg msg-success msg-success-text">Let Vinay know why you are blocking his/her account...</div>
+                <div class="form-group">
+                    <br>
+                    <h5>Reason:</h5>
+                    <textarea class="form-control" rows="3" id="comment"></textarea>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-default btn-md col-md-offset-4 "><span class="glyphicon glyphicon-ok-sign"></span>&nbsp;Ok</button>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-default btn-md "><span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="right_col" role="main">
+    <div class="container"></div>
+    <div class="row">
+        <div class="panel panel-default panelborder">
+            <div class="panel-heading panelcolor" id="panelbackcolor">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <h3 class="panel-title redtext">
+                            <span class="pull-left"><i class="fa fa-fw fa-user"></i>&nbsp;Profile Information</span><a href="#" data-toggle="modal" data-target="#Announcement"></a>
+                        </h3>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-3 col-xs-12" style="background-color:white;border-style: solid;"><br>
+                    <div class="profile-userpic" style="background-color:white;">
+                        <img src='@Model.personalInfo.PicUrl' alt="ALT NAME" class="img-responsive" style="width:100%;">
+                    </div>
+                    <div id="sideNavigation">
+                        <ul style="margin-top:10px;padding-left:0.1cm;">
+                            <li>
+                                <a data-placement="right"><i class="fa fa-user"></i>&nbsp;@Model.personalInfo.FirstName @Model.personalInfo.LastName </a>
+                            </li>
+                            <li>
+                                <a data-placement="right"><i class="fa fa-birthday-cake"></i>&nbsp; @Model.personalInfo.Dob.ToString("dd/MM/yyyy")</a>
+                            </li>
+                            <li>
+                                <a data-placement="right"><i class="fa fa-map-marker"></i>&nbsp; @Model.personalInfo.Address</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-9 col-xs-12" style="background-color:white;">
+                    <ul class="nav nav-tabs kin-tabs">
+                        <li class="active"><a aria-expanded="false" href="#settings1" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Profile Information</a></li>
+                        <li><a aria-expanded="true" href="#refund1" data-toggle="tab"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;TimeLine</a></li>
+                        <li class=""><a aria-expanded="true" href="#refund2" data-toggle="tab"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;Groups</a></li>
+                        <li class=""><a aria-expanded="true" href="#refund3" data-toggle="tab"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;My Contacts</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content tabcolor">
+                        <div class="tab-pane fade active in" id="settings1"><br><!--end of .table-responsive-->
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name" class="col-lg-5 control-label">
+                                                First Name :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                    @Model.personalInfo.FirstName
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class="col-lg-5 control-label">
+                                                Last Name :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                   @Model.personalInfo.LastName
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="abtme" class="col-lg-5 control-label">
+                                                Email-Id :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label class="">
+                                                    @Model.personalInfo.EmailId
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Prmntadd" class="col-lg-5 control-label">
+                                                Phone No :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                    @Model.personalInfo.MobileNumber
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contactno" class="col-lg-5 control-label">
+                                                Gender :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                    <span>@Model.personalInfo.Gender</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contactno" class="col-lg-5 control-label">
+                                                DOB :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                    @Model.personalInfo.Dob.ToString("dd/MM/yyyy")
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="contactno" class="col-lg-5 control-label">
+                                                About :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                    
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contactno" class="col-lg-5 control-label">
+                                                IsMarried :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                    <span>@Model.personalInfo.IsMarried</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="select" class="col-lg-5 control-label">
+                                                Rating :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                    
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="select" class="col-lg-5 control-label">
+                                                Address :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                   @Model.personalInfo.Address
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="select" class="col-lg-5 control-label">
+                                                Member Since :
+                                            </label>
+                                            <div class="col-lg-7 control-text">
+                                                <label>
+                                                     
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="refund1"><br>
+                            <div class="pam _5ep8 uiBoxWhite bottomborder">
+                                Today
+                                <div class=" blockmessage1 msg1 msg-success msg-success-text"> <i class="fa fa-user" aria-hidden="true"></i>&nbsp;<span>Your Account Created</span></div>
+                            </div>
+                            <div class="pam _5ep8 uiBoxWhite bottomborder">
+                                22-06-2015 You Are Invited
+                                <div class=" blockmessage1 msg1 ">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <span>New Year Party</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="/images/1.png" class="img-responsive" style="height:69px;" alt="not loaded">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span>Bangalore</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pam _5ep8 uiBoxWhite bottomborder">
+                                22-06-2015 &nbsp; You Are Contributed
+                                <div class=" blockmessage1 msg1 ">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <span>New Year Party</span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span>wishlist5</span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span>Mobile</span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span>25000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pam _5ep8 uiBoxWhite bottomborder">
+                                22-06-2015 &nbsp;
+                                <div class=" blockmessage1 msg1 ">
+                                    <span> You Added Prayog group </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="refund2">
+                            <div class="row">
+                                <br>
+                                <div class="col-md-12">
+                                    <div class="col-md-6 ">
+                                        <div class="panel">
+                                            <div class="panel-heading" style="border:none;background-color:whitesmoke;">
+                                                <h4>Created By @Model.personalInfo.FirstName @Model.personalInfo.LastName</h4>
+                                            </div>
+                                             @if (Model.HisContacts.Count() > 0)
+                                             {
+                                                <div class="panel-body">
+                                                    @foreach (var item in Model.HisGroups)
+                                                    {
+                                                        <div class="form-group ">
+                                                            <label><small style="font-size:12pt;">@item.Group_Name</small></label>
+                                                        </div>
+                                                            <hr>
+                                                    }
+                                                </div>
+
+                                             }
+                                             else
+                                             {
+                                                <strong>Empty</strong>
+                                             }
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <div class="panel">
+                                            <div class="panel-heading" style="border:none;background-color:whitesmoke;">
+                                                <h4> @Model.personalInfo.FirstName @Model.personalInfo.LastName belongs to these groups</h4>
+                                            </div>
+                                            @if (Model.HisContacts.Count() > 0)
+                                            {
+                                                  <div class="panel-body">
+                                                 @foreach (var item in Model.JoinedGroups)
+                                                {
+                                                    <div class="form-group ">
+                                                        <label><small style="font-size:12pt;">@item.Group_Name</small></label>
+                                                    </div>
+                                                    <hr>
+                                                 }
+                                            </div>
+                                            }
+                                            else
+                                            {
+                                                <strong>Empty</strong>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="refund3"><br>
+                            <div class="container">
+                                <div class="row">
+                                    @if (Model.HisContacts.Count() > 0)
+                                    {
+                                    <div class="table-responsive"><br>
+                                        <table class="table table-bordered table-hover" style="background-color:white;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>E-mail</th>
+                                                    <th>Mobile Number</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.HisContacts)
+                                                {
+                                                    <tr>
+                                                        <th>@item.Contact_Name</th>
+                                                        <td>@item.Contact_EmailId</td>
+                                                        <td>@item.Contact_Number</td>
+                                                    </tr>
+                                                }
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    }
+                                    else
+                                    {
+                                        <strong>Empty</strong>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

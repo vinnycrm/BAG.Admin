@@ -1,0 +1,91 @@
+﻿@model BAG.Models.Admin_Items
+@{
+    ViewBag.Title = "AddItems";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="row">
+        <div class="col-md-9 shadow">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="btnresponsive" style="background-color: #23527c; color:white; padding-bottom: 30px;">
+                    <div class="col-md-6 col-md-offset-0">
+                        <h2 class="panel-title texttrans ">
+                            <span class="fontstyle pull-left">New Items Details</span><a href="#" data-toggle="modal" data-target="#Announcement"></a>
+                        </h2>
+                    </div>
+                </div>
+               @using (Html.BeginForm("AddNewItem", "GiftItems", FormMethod.Post, new { enctype = "multipart/form-data"}))
+               {
+                <div class="panel-body" style="background-color:whitesmoke;">
+                    <div id="custom-search-inputb">
+                        <div class="form-group  col-md-offset-3 col-md-5">
+                            <label>Item Name:</label>
+                            @Html.TextBoxFor(m => m.Item_Name, new { @class = "form-control search-query form-control", @placeholder = "New Item Name"})
+                        </div>
+                    </div>
+                    <div id="custom-search-inputb ">
+                        <div class="form-group col-md-offset-3 col-md-5">
+                            <label>Item Price:</label>
+                            @Html.TextBoxFor(m => m.Item_Tentative_Cost, new { @class = "form-control search-query form-control", @placeholder = "New Item Price"})                            
+                        </div>
+                    </div>
+                    <div id="custom-search-inputb ">
+                        <div class="form-group  col-md-offset-3 col-md-5">
+                            <label>Item Description:</label>
+                            @Html.TextAreaFor(m => m.Item_Desc, new { @class = "form-control search-query form-control", @rows = "3", @placeholder = "Description of an Item" })
+                        </div>
+                    </div>
+                    <div id="custom-search-inputb ">
+                        <div class="form-group  col-md-offset-3 col-md-5">
+                            <label>Item Image:</label>
+                            <input type="file" name="imgFile" id="imgFile" accept = "image/*" onchange = "loadFile(event)" }) />
+                            <img id="imgPreview" src="" alt="your Image Preview" height="100" width="100" />
+                        </div>
+                    </div>
+                    <div id="custom-search-inputb ">
+                        <div class="form-group  col-md-offset-3 col-md-5">
+                            <p class="warning red"  id="ErrorMsg"></p>
+                        </div>
+                    </div>
+                        <div class="col-md-12 col-xs-6 col-sm-6 col-md-offset-3" id="register-submit" style="position:relative;top:10px;">
+                            <input type="submit" value="Submit" , class="btn btn-primary btn-md" onclick="return AddItemsSubmit()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
+                        </div>
+                    </div>
+               }
+            </div>
+        </div>
+     </div>
+</div>
+<script type="text/javascript">
+    function AddItemsSubmit() {
+        var status = 0;
+        var NewItem = document.getElementById("NewItem");
+        var ItemPrice = document.getElementById("ItemPrice");
+        var Img = document.getElementById("imgFile");
+        var errmsg = document.getElementById("ErrorMsg");
+
+        if (NewItem.value == "" || !isNaN(NewItem.value)) {
+            errmsg.innerHTML = "Invalid Item Name..!";
+            NewItem.focus();
+            return false;
+        } else if (ItemPrice.value == "" || isNaN(ItemPrice.value)) {
+            errmsg.innerHTML = "Invalid Item Price..!";
+            ItemPrice.focus();
+            return false;
+        } else if (Img.value == "") {
+            errmsg.innerHTML = "Invalid Item Picture..!";
+            Img.focus();
+            return false;
+        } else {
+            errmsg.innerHTML = "";
+            return true;
+        }
+    }
+
+    function loadFile(event) {
+        var output = document.getElementById('imgPreview');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

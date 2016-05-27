@@ -1,0 +1,39 @@
+﻿@model BAG.Models.Admin_Login
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginPartial.cshtml";
+}
+@using (Ajax.BeginForm("LoginProcess", "Home", null, new AjaxOptions{ HttpMethod = "POST", UpdateTargetId = "msgId", OnSuccess= "Redirect()"}, new { Id= "loginId"}))
+{
+    <h1>LOGIN</h1>
+    <div>
+        @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control", @placeholder = "Username" })
+    </div>
+    <div>
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+    </div>
+    <div>
+        <input type="submit" class="btn btn-default submit" value="Login" />
+        @Html.ActionLink("Lost your password?", "RestPassword", "Home", null, new { @class = "reset_pass" })
+    </div>
+    <div class="col-md-12 text-center" id="msgId">
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="separator">
+        <div class="clearfix"></div>
+        <br />
+        <div>
+            <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Brew A Gift!</h1>
+            <p>©2016 All Rights Reserved. Privacy and Terms</p>
+        </div>
+    </div>
+}
+<script>
+    function Redirect() {
+        if (document.getElementById("msgId").innerHTML == "Success") {
+            document.getElementById("msgId").style.display = "none";
+            window.location.href = window.location.origin + '/Home/Dashboard';
+        }
+    }
+</script>

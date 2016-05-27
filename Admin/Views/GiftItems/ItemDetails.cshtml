@@ -1,0 +1,96 @@
+﻿@model BAG.Models.A_ADM_ITEM_MASTER
+<div class="right_col" role="main">
+    <div class="container"></div>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default">
+                <div id="panelbackcolor" class="panel-heading">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <h3 class="panel-title redtext">
+                                <span class="pull-left">Item Information</span><a href="#" data-toggle="modal" data-target="#Announcement">
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="form-group pull-right">
+                            <a class="btn btn-default btn-xs" href='@Url.Action("EditItem", "GiftItems", new { Id = Model.Item_ID})'>Edit</a>
+                        </div>
+                        <div class="form-group pull-right">
+                            @if (@Model.Item_Status == "1"){<a class="btn btn-default btn-xs" href='@Url.Action("BlockMe", "GiftItems", new { Id = Model.Item_ID})'> Block</a>}else{<a class="btn btn-default btn-xs" href='@Url.Action("UnBlockMe", "GiftItems", new { Id = Model.Item_ID})'>UnBlock</a>}
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <div class="container">
+                        <div class="row bootstrap snippets" id="store-list">
+                            <div class="col-md-8 col-xs-12 col-md-offset-2">
+                                <div class="panel">
+                                    <div class="panel-body" style=" box-shadow 5px 5px 5px #888888;">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <a href="#"><img src="@Model.Item_PicUrl" class="img-responsive"></a>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="productSpecs specSection">
+
+                                                    <table class="specTable" cellspacing="0">
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th class="groupHead" colspan="2">Item Details</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Name</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext">@Model.Item_Name</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Description</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext">@Model.Item_Desc</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Price</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext"><i class="fa fa-inr" aria-hidden="true"></i>  @Model.Item_Price</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Status</td>
+                                                                @if (@Model.Item_Status == "1")
+                                                                {
+                                                                    <td class="specsValue">
+                                                                        <p class="tabletext"> <span class="label label-success">Active</span></p>
+                                                                    </td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="specsValue">
+                                                                        <p class="tabletext"> <span class="label label-warning">Blocked</span></p>
+                                                                    </td>
+                                                                }
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Source</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext">@Model.Item_Source</p>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

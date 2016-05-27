@@ -1,0 +1,113 @@
+﻿@model BAG.Models.SubAdmin
+<div class="right_col" role="main">
+    <div class="container"></div>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default">
+                <div id="panelbackcolor" class="panel-heading">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <h3 class="panel-title redtext">
+                                <span class="pull-left">@Model.First_Name @Model.Last_Name Profile </span><a href="#" data-toggle="modal" data-target="#Announcement">
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="form-group pull-right">
+                            <a class="btn btn-default btn-xs" href='@Url.Action("Editsubadmin", "subAdmin", new { Id = Model.Usr_Id})'>Edit</a>
+                        </div>
+                        <div class="form-group pull-right">
+                            @if (Model.Login_status == 1)
+                            {<a class="btn btn-default btn-xs" href='@Url.Action("Block", "SubAdmin", new { Id = Model.Usr_Id})'> Block</a>}
+                            else {<a class="btn btn-default btn-xs" href='@Url.Action("Unblock", "SubAdmin", new { Id = Model.Usr_Id})'>UnBlock</a>}
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-body">
+                    <div class="container">
+                        <div class="row bootstrap snippets" id="store-list">
+                            <div class="col-md-8 col-xs-12 col-md-offset-2">
+                                <div class="panel">
+                                    <div class="panel-body" style="box-shadow 5px 5px 5px #888888;">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <a href="#"><img src="@Model.Media_File_Location" class="img-responsive"></a>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="productSpecs specSection">
+
+                                                    <table class="specTable" cellspacing="0">
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th class="groupHead" colspan="2">Sub Admin Details</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">First Name</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext">@Model.First_Name</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Last Name</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext">@Model.Last_Name</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Email Id</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext">@Model.Alt_Email_Id</p>
+                                                                </td>
+                                                            </tr>
+                                                             <tr>
+                                                                <td class="specsKey">Mobile Number</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext">@Model.Mobile_Number</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Gender</td>
+                                                                <td class="specsValue">
+                                                                    <p class="tabletext">@Model.Gender</p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">User Role</td>
+                                                                <td class="specsValue">
+                                                                    @if(Model.Usr_role_Id == "2")
+                                                                    {
+                                                                        <p class="tabletext">Sub Administrator</p>
+                                                                    }
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="specsKey">Account Status</td>
+                                                                @if (Model.Login_status == 1)
+                                                                {
+                                                                    <td class="specsValue">
+                                                                        <p class="tabletext"> <span class="label label-success">Active</span></p>
+                                                                    </td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="specsValue">
+                                                                        <p class="tabletext"> <span class="label label-warning">Blocked</span></p>
+                                                                    </td>
+                                                                }
+
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

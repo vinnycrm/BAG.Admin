@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "Tickets Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="row">&nbsp;&nbsp;
+        <div class="row top_tiles">
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon">
+                        <i class="fa fa-user fa-5x"></i>
+                    </div>
+                    <div class="count">0000</div>
+                    <h3>Total Tickets</h3>
+                    <p>View More</p>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon">
+                        <i class="fa fa-user fa-5x"></i>
+                    </div>
+                    <div class="count">0000</div>
+                    <h3>Open Tickets</h3>
+                    <p>View More</p>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon">
+                        <i class="fa fa-users fa-5x"></i>
+                    </div>
+                    <div class="count">0000</div>
+                    <h3>Closed Tickets</h3>
+                    <p>View More</p>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon">
+                        <i class="fa fa-support fa-5x"></i>
+                    </div>
+                    <div class="count">0000</div>
+                    <h3>Emergency Tickets</h3>
+                    <p>View More</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" id="panelbackcolor">
+                <form class="navbar-form" role="search">
+                    <div class="input-group add-on  ">
+                        View Ticket
+                    </div>
+                    <div class="input-group add-on pull-right">
+                        <a href='@Url.Action("RiseTicket", "Tickets")' type="button" class="btn btn-default">
+                            <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; New Ticket
+                        </a>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_content">
+                    <div class="table-responsive table-fixed col-md-12  ">
+                        <table id="datatable" class="table table-responsive table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="headeralign">Ticket Id</th>
+                                    <th class="headeralign">Last Update</th>
+                                    <th class="headeralign">Last Replier</th>
+                                    <th class="headeralign">Priority</th>
+                                    <th class="headeralign">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="center">1111</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center"><a href="#">Open</a></td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1234</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1111</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1234</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1111</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1234</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1111</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1234</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1111</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1234</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                                <tr>
+                                    <td align="center">1111</td>
+                                    <td align="center">21 April 2016 05:21 AM</td>
+                                    <td align="center">Billing Department</td>
+                                    <td align="center">Normal</td>
+                                    <td align="center">Open</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
