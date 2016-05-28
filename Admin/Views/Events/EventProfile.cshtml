@@ -66,7 +66,9 @@
 
     <div class="row" style="margin-bottom:10px;background-color:white;">
         <div class="col-md-12">
-            <div class="col-md-4 bg_blur col-xs-12">
+            <div class="col-md-4 col-xs-12 events">
+                
+                <img class="event_bg" src="~/Img/default_event.png" /> 
                 <ul class="event-list picture_mob">
                     <li style="list-style:none;">
                         <time datetime="2014-02-25 2000" style="background-color:#5A738E; ">
@@ -124,36 +126,18 @@
                 </div>
                 <div class="col-md-9 col-xs-12" style="background-color:white;">
                     <ul class="nav nav-tabs kin-tabs">
-
-                        <li class="active">
-                            <a aria-expanded="false" href="#settings1" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Contributers</a>
-
-                        </li>
-                        <li>
-                            <a aria-expanded="true" href="#refund1" data-toggle="tab"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</a>
-
-                        </li>
-
-
-                        <li class="">
-                            <a aria-expanded="true" href="#refund2" data-toggle="tab"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;Comments</a>
-
-                        </li>
-
+                        <li class="active"><a aria-expanded="false" href="#settings1" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Contributers</a></li>
+                        <li><a aria-expanded="true" href="#refund1" data-toggle="tab"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</a></li>
+                        <li class=""><a aria-expanded="true" href="#refund2" data-toggle="tab"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;Comments</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content tabcolor">
-                        <div class="tab-pane fade active in" id="settings1">
-                            <br>
+                        <div class="tab-pane fade active in" id="settings1"><br>
                             <!--end of .table-responsive-->
-
                             <div class="panel-body">
                                 <div class="row">
-
                                     <div class="table-responsive">
-
                                         <table class="table table-bordered table-hover" style="background-color:white;">
-
                                             <thead>
                                                 <tr>
                                                     <th>Sl No.</th>
@@ -175,7 +159,6 @@
                                                         <span class="label label-success">Recived</span>
                                                     </td>
                                                 </tr>
-
                                                 <tr>
                                                     <th># 1</th>
                                                     <td>supraj@gmail.com</td>
@@ -186,7 +169,6 @@
                                                         <span class="label label-info">Onhold</span>
                                                     </td>
                                                 </tr>
-
                                                 <tr>
                                                     <th># 1</th>
                                                     <td>supraj@gmail.com</td>
@@ -207,27 +189,13 @@
                                                         <span class="label label-success">Recived</span>
                                                     </td>
                                                 </tr>
-
-
-
                                             </tbody>
-
                                         </table>
                                     </div><!--end of .table-responsive-->
-
-
-
-
-
-
                                 </div>
                             </div>
-
-
                         </div>
-
-                        <div class="tab-pane fade " id="refund1">
-                            <br>
+                        <div class="tab-pane fade " id="refund1"><br>
                             @using (Html.BeginForm("UpdateEvent", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
                                 @Html.TextBoxFor(m => m.eventDetails.Event_id, new { @type = "hidden" })
@@ -285,12 +253,9 @@
                                 </div>
                             }
                         </div>
-
                         <div class="tab-pane fade" id="refund2">
-                            <div class="row">
-                                <br>
+                            <div class="row"><br>
                                 <div class="col-md-8 col-md-offset-1">
-
                                     <div class="comments-list">
                                         <div class="media">
                                             <p class="pull-right"><small>5 days ago</small></p>
@@ -298,12 +263,9 @@
                                                 <img src="http://lorempixel.com/40/40/people/1/">
                                             </a>
                                             <div class="media-body">
-
                                                 <h4 class="media-heading user_name">Baltej Singh</h4>
                                                 Wow! this is really great.Wow! this is really great.
                                                 Wow! this is really great.Wow! this is really great.
-
-
                                             </div>
                                             <p data-toggle="modal" data-target="#block" id="mousecursor" class="pull-right"><span class="glyphicon glyphicon-trash"></span></p>
                                         </div>
@@ -313,11 +275,8 @@
                                                 <img src="http://lorempixel.com/40/40/people/2/">
                                             </a>
                                             <div class="media-body">
-
                                                 <h4 class="media-heading user_name">Baltej Singh</h4>
                                                 Wow! this is really great.
-
-
                                             </div>
                                             <p id="mousecursor" class="pull-right"><span class="glyphicon glyphicon-trash"></span></p>
                                         </div>
@@ -327,11 +286,8 @@
                                                 <img src="http://lorempixel.com/40/40/people/3/">
                                             </a>
                                             <div class="media-body">
-
                                                 <h4 class="media-heading user_name">Baltej Singh</h4>
                                                 Wow! this is really great.
-
-
                                             </div>
                                             <p data-toggle="modal" data-target="#block" id="mousecursor" class="pull-right"><span class="glyphicon glyphicon-trash"></span></p>
                                         </div>
@@ -344,21 +300,11 @@
 
                                                 <h4 class="media-heading user_name">Baltej Singh</h4>
                                                 Wow! this is really great.
-
-
                                             </div>
                                             <p data-toggle="modal" data-target="#block" id="mousecursor" class="pull-right"><span class="glyphicon glyphicon-trash"></span></p>
                                         </div>
                                     </div>
-
-
-
                                 </div>
-
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -373,5 +319,11 @@
         var output = document.getElementById('imgPreview');
         output.src = URL.createObjectURL(event.target.files[0]);
     }
+</script>
+
+<script>
+  $(function() {
+      $("#eventDetails_Event_StartDate").datepicker();
+  });
 </script>
 

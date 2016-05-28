@@ -7,3 +7,12 @@ D:\c#\BrewAdmin\BAG.BusinessLogic\bin\Debug\BAG.Models.pdb
 D:\c#\BrewAdmin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.csprojResolveAssemblyReference.cache
 D:\c#\BrewAdmin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.dll
 D:\c#\BrewAdmin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.pdb
+D:\c#\BAG\Admin\BAG.BusinessLogic\bin\Debug\BAG.BusinessLogic.dll
+D:\c#\BAG\Admin\BAG.BusinessLogic\bin\Debug\BAG.BusinessLogic.pdb
+D:\c#\BAG\Admin\BAG.BusinessLogic\bin\Debug\BAG.Models.dll
+D:\c#\BAG\Admin\BAG.BusinessLogic\bin\Debug\BAG.ModelsNew.dll
+D:\c#\BAG\Admin\BAG.BusinessLogic\bin\Debug\BAG.ModelsNew.pdb
+D:\c#\BAG\Admin\BAG.BusinessLogic\bin\Debug\BAG.Models.pdb
+D:\c#\BAG\Admin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\c#\BAG\Admin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.dll
+D:\c#\BAG\Admin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.pdb

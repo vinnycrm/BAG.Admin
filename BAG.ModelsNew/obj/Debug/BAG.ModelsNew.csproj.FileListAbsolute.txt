@@ -5,3 +5,10 @@ D:\c#\BrewAdmin\BAG.ModelsNew\bin\Debug\BAG.Models.pdb
 D:\c#\BrewAdmin\BAG.ModelsNew\obj\Debug\BAG.ModelsNew.csprojResolveAssemblyReference.cache
 D:\c#\BrewAdmin\BAG.ModelsNew\obj\Debug\BAG.ModelsNew.dll
 D:\c#\BrewAdmin\BAG.ModelsNew\obj\Debug\BAG.ModelsNew.pdb
+D:\c#\BAG\Admin\BAG.ModelsNew\bin\Debug\BAG.ModelsNew.dll
+D:\c#\BAG\Admin\BAG.ModelsNew\bin\Debug\BAG.ModelsNew.pdb
+D:\c#\BAG\Admin\BAG.ModelsNew\bin\Debug\BAG.Models.dll
+D:\c#\BAG\Admin\BAG.ModelsNew\bin\Debug\BAG.Models.pdb
+D:\c#\BAG\Admin\BAG.ModelsNew\obj\Debug\BAG.ModelsNew.csprojResolveAssemblyReference.cache
+D:\c#\BAG\Admin\BAG.ModelsNew\obj\Debug\BAG.ModelsNew.dll
+D:\c#\BAG\Admin\BAG.ModelsNew\obj\Debug\BAG.ModelsNew.pdb
