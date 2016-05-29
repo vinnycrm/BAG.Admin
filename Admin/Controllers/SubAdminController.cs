@@ -52,11 +52,11 @@ namespace Admin.Controllers
             return View(data);
         }
 
-        public ActionResult UpdateSubAdmin(SubAdmin usr, HttpPostedFileBase Media_File_Location)
+        public ActionResult UpdateSubAdmin(SubAdmin usr, HttpPostedFileBase newImg)
         {
             MembersBLL memBLL = new MembersBLL();
             string Images = "";
-            if (!string.IsNullOrEmpty(Convert.ToString(Media_File_Location)))
+            if (!string.IsNullOrEmpty(Convert.ToString(newImg)))
             {
                 if (Request.Files.Count > 0)
                 {

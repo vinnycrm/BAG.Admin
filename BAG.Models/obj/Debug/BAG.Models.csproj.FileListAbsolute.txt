@@ -8,3 +8,8 @@ D:\c#\BrewAdmin\BAG.Models\bin\Debug\BAG.Models.pdb
 D:\c#\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.dll
 D:\c#\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.pdb
 D:\c#\BrewAdmin\BAG.Models\obj\Debug\BAG.Models.csprojResolveAssemblyReference.cache
+D:\c#\BAG\Admin\BAG.Models\bin\Debug\BAG.Models.dll
+D:\c#\BAG\Admin\BAG.Models\bin\Debug\BAG.Models.pdb
+D:\c#\BAG\Admin\BAG.Models\obj\Debug\BAG.Models.csprojResolveAssemblyReference.cache
+D:\c#\BAG\Admin\BAG.Models\obj\Debug\BAG.Models.dll
+D:\c#\BAG\Admin\BAG.Models\obj\Debug\BAG.Models.pdb

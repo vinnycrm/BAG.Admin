@@ -69,6 +69,7 @@
                                             <th class="headeralign">Event Start Date</th>
                                             <th class="headeralign">Event End Date</th>
                                             <th class="headeralign">Event Location</th>
+                                            <th class="headeralign">Event Status</th>
                                             <th class="headeralign">View More</th>
                                         </tr>
                                     </thead>
@@ -80,6 +81,16 @@
                                                 <td align="center">@item.Event_StartDate.ToString("dd/MM/yyyy")</td>
                                                 <td align="center">@item.Event_EndDate.ToString("dd/MM/yyyy")</td>
                                                 <td align="center">@item.Even_Location</td>
+                                                <td align="center">
+                                                    @if (item.Event_Status == "1")
+                                                    {
+                                                        <span class="label label-success" align="center" style="vertical-align:middle;">Open</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label label-warning" align="center" style="vertical-align:middle;">Closed</span>
+                                                    }
+                                                </td>
                                                 <td align="center"><p data-placement="top" data-toggle="tooltip"><a class="btn btn-default  btn-xs buttoncolor" href='@Url.Action("EventProfile", "Events", new { Id = item.Event_Id})'> View More </a></p></td>
                                             </tr>
                                             }

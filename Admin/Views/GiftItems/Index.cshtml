@@ -77,17 +77,17 @@
 
                                 <tr>
                                     <td align="center"><a href='@Url.Action("ItemDetails", "GiftItems", new { Id = items.Item_ID})'><img src='@items.Item_PicUrl' alt="connot displayed" class="img-responsive img-zoom" style="height:50px;"></a></td>
-                                    <td align="center" style="vertical-align:middle;"><a href='@Url.Action("ItemDetails", "GiftItems", new { Id = items.Item_ID})'>@items.Item_Name</a></td>
-                                    <td align="center" style="vertical-align:middle;"><a href='@Url.Action("ItemDetails", "GiftItems", new { Id = items.Item_ID})'>@items.Item_Price</a></td>
-                                    <td align="center"><a href='@Url.Action("ItemDetails", "GiftItems", new { Id = items.Item_ID})'>
+                                    <td align="center" style="vertical-align:middle;">@items.Item_Name</td>
+                                    <td align="center" style="vertical-align:middle;">@items.Item_Price</td>
+                                    <td align="center">
                                           @if (@items.Item_Status == "1")
-                                                  {
-                                                          <span class="label label-success" align="center" style="vertical-align:middle;">Active</span>
-                                                  }
-                                           else
-                                                 {
-                                                       <span class="label label-warning" align="center" style="vertical-align:middle;">Blocked</span>
-                                                      }</a>
+                                            {
+                                                <span class="label label-success" align="center" style="vertical-align:middle;">Active</span>
+                                            }
+                                          else
+                                            {
+                                                <span class="label label-warning" align="center" style="vertical-align:middle;">Blocked</span>
+                                            }
                                     </td>
                                    <td align="center">
                                         <button class="btn btn-default  btn-xs buttoncolor  " onclick="parent.location = '@Url.Action("ItemDetails", "GiftItems", new { Id = items.Item_ID})'">View More </button> 

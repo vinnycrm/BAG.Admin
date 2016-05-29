@@ -15,23 +15,6 @@
     </div>
 </div>
 
-<div class="modal fade" id="edit" role="dialog">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Block Event</h4>
-            </div>
-            <div class="modal-body">
-                <div class="blockmessage msg msg-info"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to block this Event ?</div>
-                <br>
-                <button type="button" class="btn btn-success btn-md col-md-offset-2"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>&nbsp; &nbsp; &nbsp;
-                <button type="button" class="btn btn-danger btn-md" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="right_col" role="main">
     <div class="row top_tiles">
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -68,7 +51,7 @@
         <div class="col-md-12">
             <div class="col-md-4 col-xs-12 events">
                 
-                <img class="event_bg" src="~/Img/default_event.png" /> 
+                <img class="event_bg" src='@Model.eventDetails.Event_PicUrl' /> 
                 <ul class="event-list picture_mob">
                     <li style="list-style:none;">
                         <time datetime="2014-02-25 2000" style="background-color:#5A738E; ">
@@ -95,9 +78,6 @@
             <div class="panel-heading panelcolor" id="panelbackcolor">
                 <form class="form" role="search">
                     <span style="position:relative;top:8px;">Event Details</span>
-                    <div class="input-group add-on pull-right btnpositoin" style="position:relative;top:8px;">
-                        <a data-toggle="modal" data-target="#edit" type="button"  href="" class="btn btn-default">&nbsp; Block This Event</a>
-                    </div>
                 </form>
             </div>
             <div class="panel-body">
@@ -226,7 +206,7 @@
                                         </div>
                                             <div class="email col-md-10">
                                                 <label for="email">Start date:</label><div class="clear"></div>
-                                                @Html.TextBoxFor(m => m.eventDetails.Event_StartDate, new { @class = "form-control", @placeholder = "Enter Start Date" })
+                                                @Html.TextBoxFor(m => m.eventDetails.Event_StartDate, new { @class = "form-control hasDatepicker", @placeholder = "Enter Start Date" })
                                             </div>
                                         <div class="email col-md-10">
                                             <label for="email">Ending date:</label><div class="clear"></div>

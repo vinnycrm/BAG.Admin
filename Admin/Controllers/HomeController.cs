@@ -32,6 +32,7 @@ namespace Admin.Controllers
                 {
                     Session["AdminId"] = status.UserId;
                     Session["AdminName"] = status.UserName;
+                    Session["AdminPic"] = status.ProfilePic;
                     ModelState.Clear();
                     return Content("Success", "text/html");
                 }

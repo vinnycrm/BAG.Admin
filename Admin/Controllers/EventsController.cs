@@ -11,7 +11,6 @@ namespace Admin.Controllers
 {
     public class EventsController : Controller
     {
-        // GET: Events
         public ActionResult Index()
         {
             EventsBLL obj = new EventsBLL();
@@ -19,7 +18,6 @@ namespace Admin.Controllers
             return View(Events);
         }
 
-        // GET: EventDetails
         public ActionResult EventDetails(string id)
         {
             EventsBLL obj = new EventsBLL();
