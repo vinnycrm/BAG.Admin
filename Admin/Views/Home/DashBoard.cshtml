@@ -1,398 +1,129 @@
-﻿<!-- page content -->
+﻿@model BAG.Models.DashboardGroup
 <div class="right_col" role="main">
     <br />
     <div class="">
         <div class="row top_tiles">
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                    <div class="icon">
-                        <i class="fa fa-comments fa-5x"></i>
+            <a href='@Url.Action("Index", "Members")'>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="count">@Model.Totals.TotalMembers</div>
+                        <h3>Total Members</h3>
                     </div>
-                    <div class="count">179</div>
-                    <h3>Events</h3>
-                    <p>View More</p>
-                </div> 
-            </div> <!-- Events-->
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                    <div class="icon">
-                        <i class="fa fa-shopping-cart fa-5x"></i>
-                    </div>
-                    <div class="count">179</div>
-                    <h3>Orders</h3>
-                    <p>View More</p>
                 </div>
-            </div> <!-- Members--> 
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                    <div class="icon">
-                        <i class="fa fa-tasks fa-5x"></i>
+            </a>
+            <a href='@Url.Action("Index", "Events")'>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon">
+                            <i class="fa fa-tasks"></i>
+                        </div>
+                        <div class="count">@Model.Totals.TotalEvents</div>
+                        <h3>Total Events</h3>
                     </div>
-                    <div class="count">179</div>
-                    <h3>Open Tickets</h3>
-                    <p>View More</p>
                 </div>
-            </div> <!-- Groups--> 
-            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12"> 
-                <div class="tile-stats">
-                    <div class="icon">
-                        <i class="fa fa-support fa-5x"></i>
+            </a>
+            <a href='@Url.Action("Index", "GiftItems")'>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon">
+                            <i class="fa fa-gift"></i>
+                        </div>
+                        <div class="count">@Model.Totals.TotalItems</div>
+                        <h3>Total Gift Items</h3>
                     </div>
-                    <div class="count">179</div>
-                    <h3>Group/Contact</h3>
-                    <p>View More</p>
                 </div>
-            </div> <!-- Others-->   
+            </a>
+            <a href='@Url.Action("Index", "Vendors")'>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12"> 
+                    <div class="tile-stats">
+                        <div class="icon">
+                            <i class="fa fa-black-tie"></i>
+                        </div>
+                        <div class="count">@Model.Totals.TotalVendors</div>
+                        <h3>Total Vendors</h3>
+                    </div>
+                </div>
+            </a>
         </div>
-
         <div class="row">
             <div class="col-md-4">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Recent Event</h2>
+                        <h2>Recent 5 Members</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Title</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#"> Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
+                        @foreach (var item in Model.Members)
+                        {
+                            <a href='@Url.Action("MemberDetails", "Members", new { Id = item.Member_Id})'>
+                                <article class="media event">
+                                    <div class="pull-left date">
+                                        <p class="month">@item.Member_CreatedDate.ToString("MMM")</p>
+                                        <p class="day">@item.Member_CreatedDate.ToString("dd")</p>
+                                    </div>
+                                    <div class="media-body">
+                                        <p><strong>@item.Member_Name</strong></p>
+                                        <p>@item.Member_EmailId</p>
+                                    </div>
+                                </article>
+                            </a><br>
+                        }
                     </div>
                 </div>
-            </div> <!-- Recent Event-->
+            </div>
             <div class="col-md-4">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Open Order</h2>
-
-
+                        <h2>Recent 5 Events</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Title</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#"> Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
+                        @foreach (var item in Model.Events)
+                        {
+                            <a href='@Url.Action("EventProfile", "Events", new { Id = item.Event_Id})'>
+                                <article class="media event">
+                                    <div class="pull-left date">
+                                        <p class="month">@item.Event_CreateDate.ToString("MMM")</p>
+                                        <p class="day">@item.Event_CreateDate.ToString("dd")</p>
+                                    </div>
+                                    <div class="media-body">
+                                        <p><strong>@item.Event_Name</strong></p>
+                                        <p>@item.Event_Organizer</p>
+                                    </div>
+                                </article>
+                            </a><br>
+                        }
                     </div>
                 </div>
-            </div> <!-- Recent Group--> 
+            </div>
             <div class="col-md-4">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Open Tickets</h2>
-
-
+                        <h2>Recent 5 Vendors</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Title</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#">Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
-                        <article class="media event">
-                            <a class="pull-left date">
-                                <p class="month">April</p>
-                                <p class="day">23</p>
-                            </a>
-                            <div class="media-body">
-                                <a class="title" href="#"> Event Tittle</a>
-                                <p>Event organizer</p>
-                            </div>
-                        </article>
+                        @foreach (var item in Model.Vendors)
+                        {
+                            <a href='@Url.Action("VendorsProfile", "Vendors", new { Id = item.Vendor_Id})'>
+                                <article class="media event">
+                                    <div class="pull-left date">
+                                        <p class="month">@item.Vender_CreateDate.ToString("MMM")</p>
+                                        <p class="day">@item.Vender_CreateDate.ToString("dd")</p>
+                                    </div>
+                                    <div class="media-body">
+                                        <p><strong>@item.Vendor_ShopName</strong></p>
+                                        <p>@item.Vendor_Name</p>
+                                    </div>
+                                </article>
+                            </a><br>
+                        }
                     </div>
                 </div>
-            </div> <!-- Recent Member--> 
-
-        </div>
-    </div>
-    <!--
-    <div class="row" style="background-color:white;">
-        <div class="panel panel-default" style="border:2px solid white;">
-            <div class="panel-heading" id="btnresponsive" style="background-color:whitesmoke; color:black;padding-bottom:30px;">
-                <div class="col-md-6 col-md-offset-0">
-                    <h2 class="panel-title texttrans ">
-                        <span style="font-family: 'Lobster', cursive;" class="fontstyle pull-left">Your Amazing Title Text Here</span><a href="#" data-toggle="modal" data-target="#Announcement">
-                        </a>
-                    </h2>
-                </div>
-
-                <div class="col-md-6 col-sm-4 col-xs-5">
-                    <p data-placement="top" data-toggle="tooltip"><button class="btn btn-default pull-right btn-xs buttoncolor  " onclick="parent.location='profileedit'"><span class=" fa fa-pencil"></span>&nbsp;Add Cupon</button></p>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="col-md-3">
-            <div class="thumbnail" style="background-color:whitesmoke;">
-                <img src="marker.png" class="text-center">
-
-                <img src="images.jpg" class="img-responsive cuponimage" style="margin-top:10px;width:230px;
-height:140px; ">
-
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail" style="background-color:whitesmoke;">
-                <img src="marker.png" class="text-center">
-
-                <img src="images.jpg" class="img-responsive cuponimage" style="margin-top:10px;width:230px;
-height:140px; ">
-
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail" style="background-color:whitesmoke;">
-                <img src="marker.png" class="text-center">
-
-                <img src="images.jpg" class="img-responsive cuponimage" style="margin-top:10px;width:230px;
-height:140px; ">
-
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="thumbnail" style="background-color:whitesmoke;">
-                <img src="marker.png" class="text-center">
-                <img src="download.jpg" class="img-responsive" style="margin-top:10px;width:230px;
-height:140px;">
             </div>
         </div>
     </div>
-
-
-    <div class="col-md-7">
-
-        <div class="thumbnail clearfix">
-            <div class="col-xs-4">
-                <div class="cwrap">
-
-                    <div class="txt">discount</div>
-
-                    <div class="type">Website Coupons</div>
-                </div>
-
-
-                <div class="rating rt2">
-
-                    <div class="b1">50<span>%</span></div>
-
-                    <div class="b2">Works</div>
-
-                    <div class="b3 ">4 votes</div>
-
-                </div>
-
-
-
-
-            </div>
-            <div class="col-xs-8">
-                <div class="cwrap">
-                    <h4>Disneyland Paris Park Tickets</h4>
-                    <span class="key_days">Some messages </span>
-                    <hr style="border: 1px dashed #C1DFEB;">
-                    <span class="description">
-                        Save 35% Off Disneyland® Paris 1 Day / 2 Park Tickets. This Disneyland® Paris Pass provides admission
-                        to Disneyland® Park AND the Walt Disney Studios Park for 1 day. This Disneyland® Paris ticket
-                    </span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="panel panel-default col-md-5" style="border:2px solid white;">
-        <div class="panel-heading" id="btnresponsive" style="background-color:whitesmoke; color:black;padding-bottom:30px;">
-            <div class="col-md-offset-0">
-                <h2 class="panel-title texttrans ">
-                    <span style="font-family: 'Lobster', cursive;" class="fontstyle pull-left">Recently Added</span><a href="#" data-toggle="modal" data-target="#Announcement">
-                    </a>
-                </h2>
-            </div>
-        </div>
-        <div class="panel-body" style="background-color:whitesmoke;">
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="download.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="download.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="download.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="download.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="download.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="download.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="download.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="img.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-            <div class="col-md-4">
-                <div class="thumbnail" style="background-color:whitesmoke;height:auto;">
-                    <img src="images.jpg" class="img-responsive" style="height:100px;">
-                </div>
-
-            </div>
-        </div>
-    </div> -->
 </div>
-<!-- /page content -->

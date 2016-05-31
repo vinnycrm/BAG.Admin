@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Brew A Gift | Administrator</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     @Styles.Render("~/Content/css")
 
 </head>
@@ -39,11 +39,12 @@
                                 <li><a href='@Url.Action("DashBoard", "Home")'><i class="fa fa-home"></i>Dashboard</a></li>
                                 <li><a href='@Url.Action("Index", "Members")'><i class="fa fa-users"></i>Members Details</a></li>
                                 <li><a href='@Url.Action("Index", "Events")'> <i class="fa fa-tasks"></i>Events Details</a></li>
-                                <li><a href='@Url.Action("Index", "GiftItems")'><i class="fa fa-gift"></i>Gift Items Detais</a></li>
+                                <li><a href='@Url.Action("Index", "GiftItems")'><i class="fa fa-gift"></i>Gift Items Details</a></li>
                                 <li><a href='@Url.Action("Index", "Payments")'><i class="fa fa-exchange"></i>Transactions Details</a></li>
-                                <li><a href='@Url.Action("Index", "Notifications")'><i class="fa fa-flag-o"></i>Notifications Details</a></li>
+                                <li><a href='@Url.Action("Index", "Orders")'><i class="fa fa-first-order"></i>Orders Details</a></li>
                                 <li><a href='@Url.Action("Index", "Coupon")'><i class="fa fa-shopping-cart"></i>Coupon Details</a></li>
                                 <li><a href='@Url.Action("Index", "Tickets")'><i class="fa fa-ticket"></i>Tickets Details</a></li>
+                                <li><a href='@Url.Action("Index", "Vendors")'><i class="fa fa-black-tie"></i>Vendors Details</a></li>
                                 <li><a href='@Url.Action("Index", "SubAdmin")'><i class="fa fa-user-plus"></i>Sub Administrators</a></li>
                             </ul>
                         </div>
@@ -84,6 +85,6 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

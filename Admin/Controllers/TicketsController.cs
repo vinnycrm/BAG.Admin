@@ -22,5 +22,10 @@ namespace Admin.Controllers
         {
             return "";
         }
+
+        public ActionResult TicketDetails()
+        {
+            return View();
+        }
     }
 }

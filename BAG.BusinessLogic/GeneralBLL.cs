@@ -8,7 +8,8 @@ namespace BAG.BusinessLogic
 {
     public class GeneralBLL
     {
-        public const string Service_Link = "localhost:58972";//55983
+       public const string Service_Link = "localhost:58972";
+       //public const string Service_Link = "bagservices.prayogis.com";
 
     }
 }

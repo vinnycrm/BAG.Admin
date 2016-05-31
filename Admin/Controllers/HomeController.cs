@@ -46,13 +46,35 @@ namespace Admin.Controllers
               return Content("Invalid Password", "text/html");
             }
         }
-
         
         [Admin.FilterConfig.SessionAuthorize]
         public ActionResult DashBoard()
         {
-            //Displays DashBoard
-            return View();
+            DashboardGroup details = new DashboardGroup();
+            DashboardTotals tempTotal = new DashboardTotals();
+            MembersBLL memBLL = new MembersBLL();
+            EventsBLL eveBLL = new EventsBLL();
+            ItemsBLL iteBLL = new ItemsBLL();
+
+            List<DashboardEvents> eves = new List<DashboardEvents>();
+            List<DashboardVendors> vends = new List<DashboardVendors>();
+            tempTotal.TotalMembers = memBLL.MembersCount();
+            tempTotal.TotalEvents = eveBLL.EventsCount();
+            tempTotal.TotalItems = iteBLL.ItemsCount();
+            tempTotal.TotalVendors = "0000";
+
+            vends.Add(new DashboardVendors("1", "Shop1", "Vendor1", DateTime.Now));
+            vends.Add(new DashboardVendors("2", "Shop2", "Vendor2", DateTime.Now));
+            vends.Add(new DashboardVendors("3", "Shop3", "Vendor3", DateTime.Now));
+            vends.Add(new DashboardVendors("4", "Shop4", "Vendor4", DateTime.Now));
+            vends.Add(new DashboardVendors("5", "Shop1", "Vendor5", DateTime.Now));
+
+            details.Totals = tempTotal;
+            details.Members = memBLL.Recent5Members();
+            details.Events = eveBLL.Recent5Events();
+            details.Items = iteBLL.Recent5Items();
+            details.Vendors = vends.ToArray();
+            return View(details);
         }
 
         [Admin.FilterConfig.SessionAuthorize]

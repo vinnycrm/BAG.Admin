@@ -192,7 +192,6 @@ namespace BAG.BusinessLogic
                 httpWebRequest.ContentType = @"application/json; charset=utf-8";
                 HttpWebResponse httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                 readStream = new StreamReader(httpResponse.GetResponseStream());
-
                 var serializer = new DataContractJsonSerializer(typeof(MemberContacts[]));
                 MemberContacts[] obj = serializer.ReadObject(readStream.BaseStream) as MemberContacts[];
                 return obj;
@@ -263,6 +262,49 @@ namespace BAG.BusinessLogic
             {
                 Console.Write(e);
                 return false;
+            }
+        }
+
+        public string MembersCount()
+        {
+            try
+            {
+                StreamReader readStream;
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(@"http://" + GeneralBLL.Service_Link + "/Services/AdminService.svc/MembersCount");
+                httpWebRequest.Method = "GET";
+                httpWebRequest.ContentType = @"application/json; charset=utf-8";
+                HttpWebResponse httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                readStream = new StreamReader(httpResponse.GetResponseStream());
+
+                var serializer = new DataContractJsonSerializer(typeof(string));
+                string obj = serializer.ReadObject(readStream.BaseStream) as string;
+                return obj;
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+                return null;
+            }
+        }
+
+        public DashboardMember[] Recent5Members()
+        {
+            try
+            {
+                StreamReader readStream;
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(@"http://" + GeneralBLL.Service_Link + "/Services/AdminService.svc/Recent5Membors");
+                httpWebRequest.Method = "GET";
+                httpWebRequest.ContentType = @"application/json; charset=utf-8";
+                HttpWebResponse httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                readStream = new StreamReader(httpResponse.GetResponseStream());
+                var serializer = new DataContractJsonSerializer(typeof(DashboardMember[]));
+                DashboardMember[] obj = serializer.ReadObject(readStream.BaseStream) as DashboardMember[];
+                return obj;
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+                return null;
             }
         }
 

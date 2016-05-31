@@ -427,18 +427,6 @@ D:\c#\BrewAdmin\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
 D:\c#\BrewAdmin\Admin\obj\Debug\Admin.dll
 D:\c#\BrewAdmin\Admin\obj\Debug\Admin.pdb
 D:\c#\BAG\Admin\Admin\bin\ApplicationInsights.config
-D:\c#\BAG\Admin\Admin\bin\roslyn\csc.exe
-D:\c#\BAG\Admin\Admin\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\c#\BAG\Admin\Admin\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\c#\BAG\Admin\Admin\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\c#\BAG\Admin\Admin\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\c#\BAG\Admin\Admin\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\c#\BAG\Admin\Admin\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\c#\BAG\Admin\Admin\bin\roslyn\System.Collections.Immutable.dll
-D:\c#\BAG\Admin\Admin\bin\roslyn\System.Reflection.Metadata.dll
-D:\c#\BAG\Admin\Admin\bin\roslyn\vbc.exe
-D:\c#\BAG\Admin\Admin\bin\roslyn\VBCSCompiler.exe
-D:\c#\BAG\Admin\Admin\bin\roslyn\VBCSCompiler.exe.config
 D:\c#\BAG\Admin\Admin\bin\Admin.dll.config
 D:\c#\BAG\Admin\Admin\bin\Admin.dll
 D:\c#\BAG\Admin\Admin\bin\Admin.pdb
@@ -458,7 +446,6 @@ D:\c#\BAG\Admin\Admin\bin\Microsoft.ApplicationInsights.dll
 D:\c#\BAG\Admin\Admin\bin\Microsoft.AspNet.Identity.Core.dll
 D:\c#\BAG\Admin\Admin\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\c#\BAG\Admin\Admin\bin\Microsoft.AspNet.Identity.Owin.dll
-D:\c#\BAG\Admin\Admin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\c#\BAG\Admin\Admin\bin\Microsoft.Owin.dll
 D:\c#\BAG\Admin\Admin\bin\Microsoft.Owin.Host.SystemWeb.dll
 D:\c#\BAG\Admin\Admin\bin\Microsoft.Owin.Security.Cookies.dll
@@ -487,7 +474,6 @@ D:\c#\BAG\Admin\Admin\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\c#\BAG\Admin\Admin\bin\Microsoft.AI.Web.xml
 D:\c#\BAG\Admin\Admin\bin\Microsoft.AI.WindowsServer.xml
 D:\c#\BAG\Admin\Admin\bin\Microsoft.ApplicationInsights.xml
-D:\c#\BAG\Admin\Admin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\c#\BAG\Admin\Admin\bin\System.Web.Helpers.xml
 D:\c#\BAG\Admin\Admin\bin\System.Web.Mvc.xml
 D:\c#\BAG\Admin\Admin\bin\System.Web.Optimization.xml

@@ -1,29 +1,21 @@
-﻿@model IEnumerable<BAG.Models.Admin_Transactions>
-@{
-    ViewBag.Title = "Payments Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<div class="right_col" role="main">
+﻿<div class="right_col" role="main">
     <div class="row top_tiles">
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats">
                 <div class="icon">
                     <i class="fa fa-exchange fa-5x"></i>
                 </div>
-                <div class="count">@Model.Count()</div>
+                <div class="count">0000</div>
                 <h3>Total Transactions</h3>
-                <p>View More</p>
             </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats">
                 <div class="icon">
                     <i class="fa fa-check-circle fa-5x"></i>
-
                 </div>
                 <div class="count">17049</div>
                 <h3>Success</h3>
-                <p>View More</p>
             </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -33,7 +25,6 @@
                 </div>
                 <div class="count">1790</div>
                 <h3>Failed</h3>
-                <p>View More</p>
             </div>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -43,84 +34,63 @@
                 </div>
                 <div class="count">100</div>
                 <h3>Pending</h3>
-                <p>View More</p>
             </div>
         </div>
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading" id="panelbackcolor" style="position: static;">
-            <form class="navbar-form" role="search" style="position:relative; margin-bottom: 0px; ">
-                <div class="input-group add-on  ">
-                    Transactions Details
-                </div>
-                <div class="input-group add-on pull-right ">
-
-                    <button type="button" class="btn btn-default" onclick="parent.location = '/Home/paymentrevert'">Payment Revert</button>
-                </div>
-            </form>
-
-        </div>
-        <div class="panel-body">
-            <div class="row">
-
-                <div class="col-md-4 col-md-offset-9">
-
-                    <form class="navbar-form" role="search" style="margin-bottom:0px;margin-top:0px;">
-                        <div class="input-group add-on">
-                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        <div class="panel-heading" id="panelbackcolor" style="position: static;">&nbsp;<i class="fa fa-exchange"></i>&nbsp;Transactions Details</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-9">
+                        <form class="navbar-form" role="search" style="margin-bottom:0px;margin-top:0px;">
+                            <div class="input-group add-on">
+                                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="table-responsive tablealign">
-                    <br>
-                    <table class="table table-bordered table-hover tablealign" style="background-color:white;">
-                        <thead>
-                            <tr>
-                                <th class="headeralign">Transaction Id</th>
-                                <th class="headeralign">Event Name</th>
-                                <th class="headeralign">Wishlist Name</th>
-                                <th class="headeralign">Item Id</th>
-                                <th class="headeralign">Item Name</th>
-                                <th class="headeralign">Amount</th>
-                                <th class="headeralign">Contributer Name</th>
-                                <th class="headeralign">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
+                <div class="row">
+                    <div class="table-responsive tablealign">
+                        <br>
+                        <table class="table table-bordered table-hover tablealign" style="background-color:white;">
+                            <thead>
                                 <tr>
-                                    <td class="headeralign">@item.TransactionId</td>
-                                    <td align="center">@item.EventName</td>
-                                    <td align="center">@item.WishList</td>
-                                    <td align="center">@item.ItemId</td>
-                                    <td align="center">@item.ItemName</td>
-                                    <td align="center">@item.Amount</td>
-                                    <td align="center">@item.ContributorName</td>
-                                    <td align="center">
-                                        @if (@item.Status == "1")
-                                        {
-                                            <span class="label label-success">Success</span>
-                                        }
-                                        else
-                                        {
-                                            <span class="label label-warning">Failed</span>
-                                        }
-                                    </td>
+                                    <th class="headeralign">Transaction Id</th>
+                                    <th class="headeralign">Event Name</th>
+                                    <th class="headeralign">Wishlist Name</th>
+                                    <th class="headeralign">Item Id</th>
+                                    <th class="headeralign">Item Name</th>
+                                    <th class="headeralign">Amount</th>
+                                    <th class="headeralign">Contributer Name</th>
+                                    <th class="headeralign">Status</th>
+                                    <th class="headeralign">View More</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div><!--end of .table-responsive-->
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="headeralign">1</td>
+                                    <td align="center">Name</td>
+                                    <td align="center">WisList</td>
+                                    <td align="center">ItemId</td>
+                                    <td align="center">ItemName</td>
+                                    <td align="center">Amount</td>
+                                    <td align="center">Contributor Name</td>
+                                    <td align="center">
+                                        <span class="label label-success">Success</span>
+                                        <span class="label label-warning">Failed</span>
+                                    </td>
+                                    <td align="center"><a class="btn btn-default btn-xs" href="#">View More</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!--end of .table-responsive-->
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 

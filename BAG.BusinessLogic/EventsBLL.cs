@@ -110,5 +110,48 @@ namespace BAG.BusinessLogic
                 return 0;
             }
         }
+
+        public string EventsCount()
+        {
+            try
+            {
+                StreamReader readStream;
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(@"http://" + GeneralBLL.Service_Link + "/Services/AdminService.svc/EventsCount");
+                httpWebRequest.Method = "GET";
+                httpWebRequest.ContentType = @"application/json; charset=utf-8";
+                HttpWebResponse httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                readStream = new StreamReader(httpResponse.GetResponseStream());
+
+                var serializer = new DataContractJsonSerializer(typeof(string));
+                string obj = serializer.ReadObject(readStream.BaseStream) as string;
+                return obj;
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+                return null;
+            }
+        }
+
+        public DashboardEvents[] Recent5Events()
+        {
+            try
+            {
+                StreamReader readStream;
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(@"http://" + GeneralBLL.Service_Link + "/Services/AdminService.svc/Recent5Events");
+                httpWebRequest.Method = "GET";
+                httpWebRequest.ContentType = @"application/json; charset=utf-8";
+                HttpWebResponse httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                readStream = new StreamReader(httpResponse.GetResponseStream());
+                var serializer = new DataContractJsonSerializer(typeof(DashboardEvents[]));
+                DashboardEvents[] obj = serializer.ReadObject(readStream.BaseStream) as DashboardEvents[];
+                return obj;
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+                return null;
+            }
+        }
     }
 }

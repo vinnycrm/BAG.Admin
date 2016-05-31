@@ -1,9 +1,4 @@
 ﻿
-@{
-    ViewBag.Title = "Tickets Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
 <div class="right_col" role="main">
     <div class="row">&nbsp;&nbsp;
         <div class="row top_tiles">
@@ -14,7 +9,6 @@
                     </div>
                     <div class="count">0000</div>
                     <h3>Total Tickets</h3>
-                    <p>View More</p>
                 </div>
             </div>
             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -24,7 +18,6 @@
                     </div>
                     <div class="count">0000</div>
                     <h3>Open Tickets</h3>
-                    <p>View More</p>
                 </div>
             </div>
             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -34,7 +27,6 @@
                     </div>
                     <div class="count">0000</div>
                     <h3>Closed Tickets</h3>
-                    <p>View More</p>
                 </div>
             </div>
             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -44,23 +36,19 @@
                     </div>
                     <div class="count">0000</div>
                     <h3>Emergency Tickets</h3>
-                    <p>View More</p>
                 </div>
             </div>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading" id="panelbackcolor">
                 <form class="navbar-form" role="search">
-                    <div class="input-group add-on  ">
-                        View Ticket
-                    </div>
+                    <div class="input-group add-on">&nbsp;<i class="fa fa-ticket"></i>&nbsp; Tickets Details</div>
                     <div class="input-group add-on pull-right">
                         <a href='@Url.Action("RiseTicket", "Tickets")' type="button" class="btn btn-default">
                             <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; New Ticket
                         </a>
                     </div>
                 </form>
-                
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_content">
@@ -73,6 +61,7 @@
                                     <th class="headeralign">Last Replier</th>
                                     <th class="headeralign">Priority</th>
                                     <th class="headeralign">Status</th>
+                                    <th class="headeralign">View More</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -81,89 +70,14 @@
                                     <td align="center">21 April 2016 05:21 AM</td>
                                     <td align="center">Billing Department</td>
                                     <td align="center">Normal</td>
-                                    <td align="center"><a href="#">Open</a></td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1234</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
                                     <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1111</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1234</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1111</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1234</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1111</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1234</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1111</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1234</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">1111</td>
-                                    <td align="center">21 April 2016 05:21 AM</td>
-                                    <td align="center">Billing Department</td>
-                                    <td align="center">Normal</td>
-                                    <td align="center">Open</td>
+                                    <th align="center"><a class="btn btn-default" href='@Url.Action("TicketDetails","Tickets")'>View More</a></th>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-
-                    <div>
-                    </div>
-
+                    <div></div>
                 </div>
-
-
-
             </div>
         </div>
     </div>

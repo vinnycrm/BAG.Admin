@@ -9,8 +9,8 @@ namespace Admin
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-ui.js",
-                        "~/Scripts/jquery-1.10.2.js",
+                        "~/Scripts/dataTables.min.js",
+                        "~/Scripts/bootstrap.min.js",
                         "~/Scripts/jquery.min.js",
                         "~/Scripts/moment.min.js",
                         "~/Scripts/daterangepicker.js",
@@ -29,7 +29,7 @@ namespace Admin
                         "~/Scripts/jquery.flot.time.min.js",
                         "~/Scripts/pace.min.js",
                         "~/Scripts/vinay.js",
-                       "~/Scripts/icheck.min.js",
+                        "~/Scripts/icheck.min.js",
                         "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
@@ -44,6 +44,7 @@ namespace Admin
                       "~/Content/green.css",
                       "~/Content/floatexamples.css",
                       "~/Content/custom.css"));
+            
             // This is user to bundle the files as single file while releasing the product
             //BundleTable.EnableOptimizations = true;
         }
