@@ -284,6 +284,7 @@
     <Content Include="Scripts\icheck.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.flot.js" />
     <Content Include="Scripts\jquery.flot.orderBars.js" />
     <Content Include="Scripts\jquery.flot.pie.js" />
@@ -297,7 +298,6 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\pace.min.js" />
-    <Content Include="Scripts\vinay.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -312,8 +312,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Coupon\Index.cshtml" />
-    <Content Include="Views\Tickets\Index.cshtml" />
     <Content Include="Views\Tickets\RiseTicket.cshtml" />
     <Content Include="Views\GiftItems\ItemDetails.cshtml" />
     <Content Include="Views\Coupon\CreateCoupon.cshtml" />
@@ -355,6 +353,8 @@
     <Content Include="Views\Vendors\Index.cshtml" />
     <Content Include="Views\Tickets\TicketDetails.cshtml" />
     <Content Include="Views\Vendors\VendorsProfile.cshtml" />
+    <Content Include="Views\Tickets\Index.cshtml" />
+    <Content Include="Views\Coupon\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BAG.BusinessLogic\BAG.BusinessLogic.csproj">

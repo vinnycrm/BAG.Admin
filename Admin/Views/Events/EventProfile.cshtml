@@ -65,9 +65,9 @@
             </div>
             <div class="col-md-8  col-xs-12">
                 <div class="header event_align">
-                    <h1>@Model.eventDetails.Event_Name</h1>
-                    <h4>at @Model.eventDetails.Event_Location</h4>
-                    <span>@Model.eventDetails.Event_Desc</span>
+                    <h1 class="wordalign">@Model.eventDetails.Event_Name</h1>
+                    <h4 class="wordalign">at @Model.eventDetails.Event_Location</h4>
+                    <span class="wordalign">@Model.eventDetails.Event_Desc</span>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
         <div class="panel panel-default panelborder">
             <div class="panel-heading panelcolor" id="panelbackcolor">
                 <form class="form" role="search">
-                    <span style="position:relative;top:8px;">Event Details</span>
+                    <span>Event Details</span>
                 </form>
             </div>
             <div class="panel-body">
@@ -85,12 +85,13 @@
                     <div class="panel panel-default sidebar-menu with-icons" style="border:none;">
                         <div class="panel-body">
                             <div class="list-group">
+                                <h4 class="text-center"><u>Wish Lists</u></h4>
                                 @if(Model.eventWishList.Count() > 0)
                                 { 
                                     foreach (var item in Model.eventWishList)
                                     {
                                          <div class="list-group-item">
-                                            <a style="text-decoration:none; text-decoration:none;" href='@Url.Action("EventProfile", "Events", new { Id = item.WishList_Id})'><i class="fa fa-tasks fa-fw "></i> @item.WishList_Name</a>
+                                            <a style="text-decoration:none; text-decoration:none;" href="#"><i class="fa fa-tasks fa-fw "></i> @item.WishList_Name</a>
                                         </div>
                                     }
                                 }

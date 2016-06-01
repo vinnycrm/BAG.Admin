@@ -9,11 +9,10 @@ namespace Admin
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/dataTables.min.js",
-                        "~/Scripts/bootstrap.min.js",
                         "~/Scripts/jquery.min.js",
                         "~/Scripts/moment.min.js",
                         "~/Scripts/daterangepicker.js",
+                        "~/Scripts/dataTables.min.js",
                         "~/Scripts/chart.min.js",
                         "~/Scripts/jquery.sparkline.min.js",
                         "~/Scripts/custom.js",
@@ -28,8 +27,9 @@ namespace Admin
                         "~/Scripts/jquery.flot.stack.js",
                         "~/Scripts/jquery.flot.time.min.js",
                         "~/Scripts/pace.min.js",
-                        "~/Scripts/vinay.js",
-                        "~/Scripts/icheck.min.js",
+                       "~/Scripts/icheck.min.js",
+                       "~/Scripts/jquery-ui.js",
+                       "~/Scripts/jquery-1.10.2.js",
                         "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
@@ -37,14 +37,13 @@ namespace Admin
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
-                      "~/Content/madancustom.css", 
+                      "~/Content/madancustom.css",
                       "~/Content/animate.min.css",
-                      "~/Content/jquery-ui.css",
                       "~/Content/jquery-jvectormap-2.0.3.css",
                       "~/Content/green.css",
+                      "~/Content/jquery-ui.css",
                       "~/Content/floatexamples.css",
                       "~/Content/custom.css"));
-            
             // This is user to bundle the files as single file while releasing the product
             //BundleTable.EnableOptimizations = true;
         }

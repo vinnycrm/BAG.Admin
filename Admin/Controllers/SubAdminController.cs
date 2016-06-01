@@ -83,29 +83,31 @@ namespace Admin.Controllers
         public ActionResult CreateSubAdmin(A_ModelGroupsList subAdmin, HttpPostedFileBase imgFile)
         {
             MembersBLL obj = new MembersBLL();
-            string Images = "";
+            HttpPostedFileBase files = null;
+            string Images = string.Empty;
+            string path = string.Empty;
+            string directory = string.Empty;
             if (!string.IsNullOrEmpty(Convert.ToString(imgFile)))
             {
                 if (Request.Files.Count > 0)
                 {
                     int i = 0;
-                    HttpPostedFileBase files = Request.Files[i];
+                    files = Request.Files[i];
                     if (files.ContentLength > 0)
                     {
                         string filestoragename = Guid.NewGuid().ToString() + ".jpeg";
-                        string directory = Server.MapPath("~/images/");
-                        string path = Path.Combine(directory, filestoragename);
+                        directory = Server.MapPath("~/images/");
+                        path = Path.Combine(directory, filestoragename);
                         files.SaveAs(path);
                         Images = filestoragename;
                     }
                 }
-                subAdmin.MasterData.Media_Id_Img = string.IsNullOrEmpty(Images) ? "/img/default_ProfilePicture.jpg" : "/images/" + Images;
+                subAdmin.MasterData.Media_Id_Img = string.IsNullOrEmpty(Images) ? "http://bagadmin.prayogis.com/Img/default_ProfilePicture.jpg" : "http://bagadmin.prayogis.com/Images/" + Images;
             }
             subAdmin.MasterData.Created_by = Convert.ToString(Session["AdminId"]);
             subAdmin.MasterData.Updated_by = Convert.ToString(Session["AdminId"]);
             bool state = obj.NewSubAdmin(subAdmin);
             return RedirectToAction("Index", "SubAdmin");
-
         }
     }
 }
