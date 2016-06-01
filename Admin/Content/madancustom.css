@@ -674,3 +674,10 @@ background-color:white;
     -moz-osx-font-smoothing: grayscale;
 }
 
+.tablePading{
+    padding-left:0.8cm;
+}
+
+.panelPading{
+    padding: 15px 5px !important;
+}
