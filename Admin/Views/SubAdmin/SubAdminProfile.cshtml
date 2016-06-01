@@ -4,105 +4,182 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div id="panelbackcolor" class="panel-heading">
+                <div id="panelbackcolor" class="panel-heading panelpading1">
                     <form class="form-inline">
                         <div class="form-group">
                             <h3 class="panel-title redtext">
-                                <span class="pull-left">@Model.First_Name @Model.Last_Name Profile </span><a href="#" data-toggle="modal" data-target="#Announcement">
+                                <span class="pull-left"><i class="fa fa-user" aria-hidden="true"></i> @Model.First_Name @Model.Last_Name Profile </span><a href="#" data-toggle="modal" data-target="#Announcement">
                                 </a>
                             </h3>
                         </div>
                         <div class="form-group pull-right">
-                            <a class="btn btn-default btn-xs" href='@Url.Action("Editsubadmin", "subAdmin", new { Id = Model.Usr_Id})'>Edit</a>
+                            <a class="btn btn-default btn-sm" href='@Url.Action("Editsubadmin", "subAdmin", new { Id = Model.Usr_Id})'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</a>
                         </div>
                         <div class="form-group pull-right">
                             @if (Model.Login_status == 1)
-                            {<a class="btn btn-default btn-xs" href='@Url.Action("Block", "SubAdmin", new { Id = Model.Usr_Id})'> Block</a>}
-                            else {<a class="btn btn-default btn-xs" href='@Url.Action("Unblock", "SubAdmin", new { Id = Model.Usr_Id})'>UnBlock</a>}
+                            {<a class="btn btn-default btn-sm" href='@Url.Action("Block", "SubAdmin", new { Id = Model.Usr_Id})'><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Block</a>}
+                            else
+                            {<a class="btn btn-default btn-sm" href='@Url.Action("Unblock", "SubAdmin", new { Id = Model.Usr_Id})'><i class="fa fa-chain-broken" aria-hidden="true"></i>&nbsp;UnBlock</a>}
                         </div>
                     </form>
                 </div>
                 <div class="panel-body">
                     <div class="container">
-                        <div class="row bootstrap snippets" id="store-list">
-                            <div class="col-md-8 col-xs-12 col-md-offset-2">
-                                <div class="panel">
-                                    <div class="panel-body" style="box-shadow 5px 5px 5px #888888;">
-                                        <div class="row">
-                                            <div class="col-sm-5">
-                                                <a href="#"><img src="@Model.Media_File_Location" class="img-responsive"></a>
+
+
+                        <div class="div col-md-3" style="background-color:whitesmoke;">
+                            <div class="profile-userpic">
+                                <img src="/img/pic6.jpg" alt="ALT NAME" class="img-responsive ">
+                            </div>
+                            <div id="sideNavigation">
+                                <ul style="margin-top:10px;padding-left:0.1cm;">
+                                    <li>
+                                        <a data-placement="right"><i class="fa fa-user"></i>&nbsp;Madan s b</a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="right"><i class="fa fa-birthday-cake"></i>&nbsp; 28 Apr 2016</a>
+                                    </li>
+                                    <li>
+                                        <a data-placement="right"><i class="fa fa-map-marker"></i>R M Nagar Bangalore  </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-9 shadow">
+                            <div class="panel panel-default" style="border:2px solid whitesmoke;">
+                                <div class="panel-heading" id="btnresponsive" style="background-color:whitesmoke; color:black;padding-bottom:30px;">
+                                      
+                                </div>
+                                <div class="panel-body" style="background-color:whitesmoke;">
+                                    <div class="form-horizontal">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name" class="col-lg-5 control-label">
+                                                    First Name :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+                                                        Madan s b
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-7">
-                                                <div class="productSpecs specSection">
+                                            <div class="form-group">
+                                                <label for="name" class="col-lg-5 control-label">
+                                                    Last Name :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
 
-                                                    <table class="specTable" cellspacing="0">
-                                                        <tbody>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="abtme" class="col-lg-5 control-label">
+                                                    Email-Id :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+                                                        sb.madansrb@gmail.com
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dob" class="col-lg-5 control-label">
+                                                    Alternate Email-Id :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
 
-                                                            <tr>
-                                                                <th class="groupHead" colspan="2">Sub Admin Details</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="specsKey">First Name</td>
-                                                                <td class="specsValue">
-                                                                    <p class="tabletext">@Model.First_Name</p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="specsKey">Last Name</td>
-                                                                <td class="specsValue">
-                                                                    <p class="tabletext">@Model.Last_Name</p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="specsKey">Email Id</td>
-                                                                <td class="specsValue">
-                                                                    <p class="tabletext">@Model.Alt_Email_Id</p>
-                                                                </td>
-                                                            </tr>
-                                                             <tr>
-                                                                <td class="specsKey">Mobile Number</td>
-                                                                <td class="specsValue">
-                                                                    <p class="tabletext">@Model.Mobile_Number</p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="specsKey">Gender</td>
-                                                                <td class="specsValue">
-                                                                    <p class="tabletext">@Model.Gender</p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="specsKey">User Role</td>
-                                                                <td class="specsValue">
-                                                                    @if(Model.Usr_role_Id == "2")
-                                                                    {
-                                                                        <p class="tabletext">Sub Administrator</p>
-                                                                    }
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="specsKey">Account Status</td>
-                                                                @if (Model.Login_status == 1)
-                                                                {
-                                                                    <td class="specsValue">
-                                                                        <p class="tabletext"> <span class="label label-success">Active</span></p>
-                                                                    </td>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <td class="specsValue">
-                                                                        <p class="tabletext"> <span class="label label-warning">Blocked</span></p>
-                                                                    </td>
-                                                                }
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Prmntadd" class="col-lg-5 control-label">
+                                                    Phone No :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
 
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contactno" class="col-lg-5 control-label">
+                                                    Gender :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+                                                        <span>Female</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contactno" class="col-lg-5 control-label">
+                                                    DOB :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+                                                        28 Apr 2016
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="contactno" class="col-lg-5 control-label">
+                                                    About :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contactno" class="col-lg-5 control-label">
+                                                    IsMarried :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+                                                        <span>Not Married</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="select" class="col-lg-5 control-label">
+                                                    Rating :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="select" class="col-lg-5 control-label">
+                                                    Address :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+                                                        1
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="select" class="col-lg-5 control-label">
+                                                    Member Since :
+                                                </label>
+                                                <div class="col-lg-7 control-text">
+                                                    <label class="labelpos">
+                                                        28 Apr 2016
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

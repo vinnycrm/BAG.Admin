@@ -1,19 +1,20 @@
 ﻿@model BAG.Models.Coupons
 <div class="right_col" role="main">
     <div class="row">&nbsp;&nbsp;
-        <div class="panel panel-default">
-            <div class="panel-heading" id="panelbackcolor">
+        <div class="panel panel-default ">
+            <div class="panel-heading panelpading2" id="panelbackcolor">
                 <form class="navbar-form" role="search">
-                    <div class="input-group add-on  ">Create Coupon</div>
+                    <div class="input-group add-on  "><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Create Coupon</div>
                 </form>
             </div>
             <div class="panel-body">
-                @using (Html.BeginForm("CreateNewCoupon", "Coupon", FormMethod.Post, new { enctype = "multipart/form-data"})){ 
+                @using (Html.BeginForm("CreateNewCoupon", "Coupon", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
                     <div class="col-md-6">
                         <div class="register-form">
                             <div class="email col-md-10">
                                 <label>Coupon Name:</label>
-                                @Html.TextBoxFor(m => m.Coupon_Name, new { @class = "form-control", @placeholder = "Enter Coupon Name"})
+                                @Html.TextBoxFor(m => m.Coupon_Name, new { @class = "form-control", @placeholder = "Enter Coupon Name" })
                             </div>
                             <div class="email col-md-10">
                                 <label>Coupon Vender Name:</label>
@@ -45,7 +46,7 @@
                         </div>
                         <div class="email col-md-10">
                             <label for="email">Cupon Picture:</label><div class="clear"></div>
-                            <input type="file" name="CupImg" accept = "image/*" id="CupImg">
+                            <input type="file" name="CupImg" accept="image/*" id="CupImg">
                             <div id="dvPreview"></div>
                         </div>
                     </div>

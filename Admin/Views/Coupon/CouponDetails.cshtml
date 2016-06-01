@@ -4,19 +4,22 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div id="panelbackcolor" class="panel-heading">
+                <div id="panelbackcolor" class="panel-heading panelpading1">
                     <form class="form-inline">
                         <div class="form-group">
                             <h3 class="panel-title redtext">
-                                <span class="pull-left">Coupon Information</span><a href="#" data-toggle="modal" data-target="#Announcement">
+                                <span style="font-size:15pt;" class="pull-left"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Coupon Information</spansty><a href="#" data-toggle="modal" data-target="#Announcement">
                                 </a>
                             </h3>
                         </div>
                         <div class="form-group pull-right">
-                            <a class="btn btn-default btn-xs" href='@Url.Action("EditCupons", "Coupon", new { Id = Model.Coupon_id})'>Edit</a>
+                            <a class="btn btn-default btn-sm" href='@Url.Action("EditCupons", "Coupon", new { Id = Model.Coupon_id})'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</a>
                         </div>
                         <div class="form-group pull-right">
-                            @if (@Model.Coupon_Status == "1"){<a class="btn btn-default btn-xs" href='@Url.Action("BlockMe", "Coupon", new { Id = Model.Coupon_id})'> Block</a>}else{<a class="btn btn-default btn-xs" href='@Url.Action("UnBlockMe", "Coupon", new { Id = Model.Coupon_id})'>UnBlock</a>}
+                            @if (@Model.Coupon_Status == "1")
+                            {<a class="btn btn-default btn-sm" href='@Url.Action("BlockMe", "Coupon", new { Id = Model.Coupon_id})'><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Block</a>}
+                            else
+                            {<a class="btn btn-default btn-sm" href='@Url.Action("UnBlockMe", "Coupon", new { Id = Model.Coupon_id})'><i class="fa fa-chain-broken" aria-hidden="true"></i>&nbsp;UnBlock</a>}
                         </div>
                     </form>
                 </div>

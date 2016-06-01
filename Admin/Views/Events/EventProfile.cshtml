@@ -78,17 +78,21 @@
 
     <div class="row">
         <div class="panel panel-default panelborder">
-            <div class="panel-heading panelcolor" id="panelbackcolor">
-                <form class="form" role="search">
-                    <span>Event Details</span>
-                </form>
+             
+            <div class="panel-heading panelPading" id="panelbackcolor">
+                &nbsp;<i class="fa fa-tasks"></i>&nbsp;Event Details
+                <div class="input-group add-on pull-right">
+                    <a href='@Url.Action("#")' type="button" class="btn btn-default btn-sm">
+                        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Edit
+                    </a>
+                </div>
             </div>
             <div class="panel-body">
                 <div class="col-md-3 col-xs-12">
                     <div class="panel panel-default sidebar-menu with-icons" style="border:none;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <h4 class="text-center"><u>Wish Lists</u></h4>
+                                <h4 style="border-bottom:solid 3px ;width:135px;">MY WISH LISTS</h4>
                                 @if(Model.eventWishList.Count() > 0)
                                 { 
                                     foreach (var item in Model.eventWishList)
@@ -110,133 +114,153 @@
                 </div>
                 <div class="col-md-9 col-xs-12" style="background-color:white;">
                     <ul class="nav nav-tabs kin-tabs">
-                        <li class="active"><a aria-expanded="false" href="#settings1" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Contributers</a></li>
-                        <li><a aria-expanded="true" href="#refund1" data-toggle="tab"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</a></li>
-                        <li class=""><a aria-expanded="true" href="#refund2" data-toggle="tab"><i class="fa fa-repeat" aria-hidden="true"></i>&nbsp;&nbsp;Comments</a></li>
+                        <li class="active"><a aria-expanded="false" href="#settings0" data-toggle="tab"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;&nbsp;Items</a></li>
+                        <li><a aria-expanded="false" href="#settings1" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Invites</a></li>
+                        <li><a aria-expanded="true" href="#refund1" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Contributer</a></li>
+                        <li class=""><a aria-expanded="true" href="#refund2" data-toggle="tab"><i class="fa fa-comment" aria-hidden="true"></i>&nbsp;&nbsp;Comments</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content tabcolor">
-                        <div class="tab-pane fade active in" id="settings1"><br>
+                        <div class="tab-pane fade active in" id="settings0"><br>
                             <!--end of .table-responsive-->
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover" style="background-color:white;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Sl No.</th>
-                                                    <th>E-mail</th>
-                                                    <th>Item Name</th>
-                                                    <th>Amount</th>
-                                                    <th>Contribute Date</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th># 1</th>
-                                                    <td>supraj@gmail.com</td>
-                                                    <td>Mobile,laptop</td>
-                                                    <td>1000</td>
-                                                    <td>2/2/2010</td>
-                                                    <td>
-                                                        <span class="label label-success">Recived</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th># 1</th>
-                                                    <td>supraj@gmail.com</td>
-                                                    <td>Mobile</td>
-                                                    <td>1000</td>
-                                                    <td>2/2/2010</td>
-                                                    <td>
-                                                        <span class="label label-info">Onhold</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th># 1</th>
-                                                    <td>supraj@gmail.com</td>
-                                                    <td>Mobile,laptop</td>
-                                                    <td>1000</td>
-                                                    <td>2/2/2010</td>
-                                                    <td>
-                                                        <span class="label label-success">Recived</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th># 1</th>
-                                                    <td>supraj@gmail.com</td>
-                                                    <td>Car</td>
-                                                    <td>1000</td>
-                                                    <td>2/2/2010</td>
-                                                    <td>
-                                                        <span class="label label-success">Recived</span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div><!--end of .table-responsive-->
+                             
+                            <div class="row table-responsive tablealign" style="padding-left:0.6cm;">
+                                <table class="tab-score" data-toggle="table" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                    <thead class="thd">
+                                        <tr>
+                                            <th class="headeralign" data-sortable="true">Item Picture</th>
+                                            <th class="headeralign" data-sortable="true">Item Name</th>
+                                            <th class="headeralign" data-sortable="true">Item Price</th>
+                                            <th class="headeralign" data-sortable="true">Vendor Name</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        <tr>
+                                            <td align="center"><img src='' alt="connot displayed" style="vertical-align: middle; height: 50px;" class="img-responsive img-zoom"></td>
+
+                                            <td align="center" style="vertical-align:middle;">asasa</td>
+                                            <td align="center" style="vertical-align:middle;">1212</td>
+                                            <td align="center" style="vertical-align:middle;">flifcart</td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+  <!--end of .table-responsive-->
                                 </div>
+                            
+
+                        <div class="tab-pane fade " id="settings1">
+                            <br>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No.</th>
+                                            <th>E-mail</th>
+                                            <th>Invited Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th># 1</th>
+                                            <td>supraj@gmail.com</td>
+                                            <td>2/2/2010</td>
+                                            <td>
+                                                <span class="label label-info">Invited</span>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th># 1</th>
+                                            <td>supraj@gmail.com</td>
+                                            <td>2/2/2010</td>
+                                            <td>
+                                                <span class="label label-warning">May Be</span>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <th># 3</th>
+                                            <td>supraj@gmail.com</td>
+                                            <td>2/2/2010</td>
+                                            <td>
+                                                <span class="label label-danger">Not Going</span>
+                                            </td>
+                                        </tr>
+
+
+
+                                    </tbody>
+
+                                </table>
                             </div>
                         </div>
                         <div class="tab-pane fade " id="refund1"><br>
-                            @using (Html.BeginForm("UpdateEvent", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                            {
-                                @Html.TextBoxFor(m => m.eventDetails.Event_id, new { @type = "hidden" })
-                                <div class="col-md-6">
-                                    <div class="register-form">
-                                        <div class="email col-md-10">
-                                            <label for="email">Event Name:</label><div class="clear"></div>
-                                            @Html.TextBoxFor(m => m.eventDetails.Event_Name, new { @class = "form-control", @placeholder = "Enter Event Name" })
-                                        </div>
-                                        <div class="email col-md-10">
-                                            <label for="email">Event Location:</label><div class="clear"></div>
-                                            @Html.TextBoxFor(m => m.eventDetails.Event_Location, new { @class = "form-control", @placeholder = "Enter Event Location" })
-                                        </div>
-                                        <div class="email col-md-10">
-                                            <label for="name">Event Status:&nbsp;</label>
-                                            <div>
-                                                @if (Model.eventDetails.Event_Status == "1")
-                                                {
-                                                    <label>@Html.RadioButtonFor(m => m.eventDetails.Event_Status, "1", new { @checked = true })&nbsp;Open</label>
-                                                    <label>@Html.RadioButtonFor(m => m.eventDetails.Event_Status, "0")&nbsp;Closed</label>
-                                                }
-                                                else
-                                                {
-                                                    <label>@Html.RadioButtonFor(m => m.eventDetails.Event_Status, "1")&nbsp;Open</label>
-                                                    <label>@Html.RadioButtonFor(m => m.eventDetails.Event_Status, "0", new { @checked = true })&nbsp;Closed</label>
-                                                }
-                                            </div>
-                                        </div>
-                                            <div class="email col-md-10">
-                                                <label for="email">Start date:</label><div class="clear"></div>
-                                                @Html.TextBoxFor(m => m.eventDetails.Event_StartDate, new { @class = "form-control date-picker", @placeholder = "Enter Start Date" })
-                                            </div>
-                                        <div class="email col-md-10">
-                                            <label for="email">Ending date:</label><div class="clear"></div>
-                                            @Html.TextBoxFor(m => m.eventDetails.Event_EndDate, new { @class = "form-control date-picker", @placeholder = "Enter End Date" })
-                                        </div>
-                                        </div>
-                                    </div>
-                                <div class="col-md-6">
-                                    <div class="register-form">
-                                        <div class="email col-md-10">
-                                            <label for="email">Event Description:</label><div class="clear"></div>
-                                            @Html.TextAreaFor(m => m.eventDetails.Event_Desc, new { @class = "form-control search-query form-control", @rows = "3", @placeholder = "Enter the short description of an Event" })
-                                        </div>
-                                        <div class="email col-md-10">
-                                            <label for="email">Event Picture:</label><div class="clear"></div>
-                                            <input type="file" id="newImg" name="newImg" accept="image/*" onchange="loadFile(event)" />
-                                            <img id="imgPreview" src='@Model.eventDetails.Event_PicUrl' alt="your Image Preview" height="100" width="100" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center" id="register-submit" style="position:relative;top:10px;">
-                                    <input type="submit" value="Update" class="btn btn-primary btn-md" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
-                                </div>
-                            }
-                        </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover" style="background-color:white;">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No.</th>
+                                            <th>E-mail</th>
+                                            <th>Item Name</th>
+                                            <th>Amount</th>
+                                            <th>Contribute Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th># 1</th>
+                                            <td>supraj@gmail.com</td>
+                                            <td>Mobile,laptop</td>
+                                            <td>1000</td>
+                                            <td>2/2/2010</td>
+                                            <td>
+                                                <span class="label label-success">Recived</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th># 1</th>
+                                            <td>supraj@gmail.com</td>
+                                            <td>Mobile</td>
+                                            <td>1000</td>
+                                            <td>2/2/2010</td>
+                                            <td>
+                                                <span class="label label-info">Onhold</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th># 1</th>
+                                            <td>supraj@gmail.com</td>
+                                            <td>Mobile,laptop</td>
+                                            <td>1000</td>
+                                            <td>2/2/2010</td>
+                                            <td>
+                                                <span class="label label-success">Recived</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th># 1</th>
+                                            <td>supraj@gmail.com</td>
+                                            <td>Car</td>
+                                            <td>1000</td>
+                                            <td>2/2/2010</td>
+                                            <td>
+                                                <span class="label label-success">Recived</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                                                     </div>
                         <div class="tab-pane fade" id="refund2">
                             <div class="row"><br>
                                 <div class="col-md-8 col-md-offset-1">

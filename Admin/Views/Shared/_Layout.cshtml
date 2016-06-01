@@ -17,24 +17,14 @@
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
                         <a href='@Url.Action("DashBoard", "Home")' class="site_title"><i class="fa fa-gift"></i> <span>Brew A Gift</span></a>
+                        
                     </div>
-                    <div class="clearfix"></div>
-                    <!-- menu prile quick info -->
-                    <div class="profile">
-                        <div class="profile_pic">
-                            <img src='@Session["AdminPic"]' alt="..." class="img-circle profile_img">
-                        </div>
-                        <div class="profile_info">
-                            <span>Welcome</span>
-                            <h2>@Session["AdminName"]</h2>
-                        </div>
-                    </div>
-                    <!-- /menu prile quick info -->
-                    <br />
+                    <div class="clearfix" style="border-bottom: solid 2px whitesmoke;"></div>
+                    
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <br><br><br><br>
+                           
                             <ul class="nav side-menu">
                                 <li><a href='@Url.Action("DashBoard", "Home")'><i class="fa fa-home"></i>Dashboard</a></li>
                                 <li><a href='@Url.Action("Index", "Members")'><i class="fa fa-users"></i>Members Details</a></li>

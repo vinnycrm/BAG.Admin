@@ -16,3 +16,12 @@ D:\c#\BAG\Admin\BAG.BusinessLogic\bin\Debug\BAG.Models.pdb
 D:\c#\BAG\Admin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.csprojResolveAssemblyReference.cache
 D:\c#\BAG\Admin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.dll
 D:\c#\BAG\Admin\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.pdb
+D:\BAG\BAG.BusinessLogic\bin\Debug\BAG.BusinessLogic.dll
+D:\BAG\BAG.BusinessLogic\bin\Debug\BAG.BusinessLogic.pdb
+D:\BAG\BAG.BusinessLogic\bin\Debug\BAG.Models.dll
+D:\BAG\BAG.BusinessLogic\bin\Debug\BAG.ModelsNew.dll
+D:\BAG\BAG.BusinessLogic\bin\Debug\BAG.ModelsNew.pdb
+D:\BAG\BAG.BusinessLogic\bin\Debug\BAG.Models.pdb
+D:\BAG\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\BAG\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.dll
+D:\BAG\BAG.BusinessLogic\obj\Debug\BAG.BusinessLogic.pdb
