@@ -294,28 +294,28 @@
                                 <div class="row">
                                     @if (Model.HisContacts.Count() > 0)
                                     {
-                                    <div class="table-responsive"><br>
-                                        <table class="table table-bordered table-hover" style="background-color:white;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>E-mail</th>
-                                                    <th>Mobile Number</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach (var item in Model.HisContacts)
-                                                {
+                                        <div class="table-responsive">
+                                            <table class="tab-score" data-toggle="table" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                                <thead class="thd">
                                                     <tr>
-                                                        <th>@item.Contact_Name</th>
-                                                        <td>@item.Contact_EmailId</td>
-                                                        <td>@item.Contact_Number</td>
+                                                        <th>Name</th>
+                                                        <th>E-mail</th>
+                                                        <th>Mobile Number</th>
                                                     </tr>
-                                                }
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.HisContacts)
+                                                    {
+                                                        <tr>
+                                                            <th>@item.Contact_Name</th>
+                                                            <td>@item.Contact_EmailId</td>
+                                                            <td>@item.Contact_Number</td>
+                                                        </tr>
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     }
                                     else
                                     {

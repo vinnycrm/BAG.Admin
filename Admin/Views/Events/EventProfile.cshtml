@@ -1,4 +1,7 @@
 ﻿@model BAG.Models.EventsGroup
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
 <div class="modal fade" id="block" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -207,11 +210,11 @@
                                         </div>
                                             <div class="email col-md-10">
                                                 <label for="email">Start date:</label><div class="clear"></div>
-                                                @Html.TextBoxFor(m => m.eventDetails.Event_StartDate, new { @class = "form-control hasDatepicker", @placeholder = "Enter Start Date" })
+                                                @Html.TextBoxFor(m => m.eventDetails.Event_StartDate, new { @class = "form-control date-picker", @placeholder = "Enter Start Date" })
                                             </div>
                                         <div class="email col-md-10">
                                             <label for="email">Ending date:</label><div class="clear"></div>
-                                            @Html.TextBoxFor(m => m.eventDetails.Event_EndDate, new { @class = "form-control", @placeholder = "Enter End Date" })
+                                            @Html.TextBoxFor(m => m.eventDetails.Event_EndDate, new { @class = "form-control date-picker", @placeholder = "Enter End Date" })
                                         </div>
                                         </div>
                                     </div>
@@ -300,11 +303,5 @@
         var output = document.getElementById('imgPreview');
         output.src = URL.createObjectURL(event.target.files[0]);
     }
-</script>
-
-<script>
-  $(function() {
-      $("#eventDetails_Event_StartDate").datepicker();
-  });
 </script>
 

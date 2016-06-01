@@ -9,6 +9,8 @@ namespace Admin
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/bootstrap-datepicker.js",
+                        "~/Scripts/bootstrap-table.js",
                         "~/Scripts/jquery.min.js",
                         "~/Scripts/moment.min.js",
                         "~/Scripts/daterangepicker.js",
@@ -37,6 +39,7 @@ namespace Admin
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
+                      "~/Content/bootstrap-table.css",
                       "~/Content/madancustom.css",
                       "~/Content/animate.min.css",
                       "~/Content/jquery-jvectormap-2.0.3.css",

@@ -213,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.min.css" />
+    <Content Include="Content\bootstrap-table.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\dataTables.min.css" />
@@ -274,6 +275,8 @@
     <Content Include="Img\default_ProfilePicture.jpg" />
     <Content Include="Img\no-image.gif" />
     <Content Include="Img\pic6.jpg" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-table.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chart.min.js" />
     <Content Include="Scripts\curvedLines.js" />

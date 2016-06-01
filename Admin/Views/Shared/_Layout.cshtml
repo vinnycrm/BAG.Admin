@@ -82,7 +82,13 @@
         <div class="clearfix"></div>
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
+    <script>
+        $(".date-picker").datepicker();
 
+        $(".date-picker").on("change", function () {
+            $(".date-picker").datepicker();
+        });
+    </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)

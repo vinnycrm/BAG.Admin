@@ -62,64 +62,45 @@
             </form>
         </div>
         <div class="panel-body">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-9">
-                    <form class="navbar-form" role="search" style="margin-bottom:0px;margin-top:0px;">
-                        <div class="input-group add-on">
-                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_content">
-                        <div class="table-responsive table-fixed col-md-12  ">
-                            <div class="table-responsive tablealign">
-                                <br>
-                                <table class="table table-bordered table-hover tablealign" style="background-color:white;">
-                                    <thead>
-                                        <tr>
-                                            <th class="headeralign">Coupon Name</th>
-                                            <th class="headeralign">Start Date</th>
-                                            <th class="headeralign">End Date</th>
-                                            <th class="headeralign">Status</th>
-                                            <th class="headeralign">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var items in Model)
-                                        {
-                                            <tr>
-                                                <td align="center" style="vertical-align:middle;">@items.Coupon_Name</td>
-                                                <td align="center" style="vertical-align:middle;">@items.Coupon_StartDate.ToString("dd/MM/yyyy")</td>
-                                                <td align="center" style="vertical-align:middle;">@items.Coupon_EndDate.ToString("dd/MM/yyyy")</td>
-                                                <td align="center" style="vertical-align:middle;">
-                                                    @if (@items.Coupon_Status == "1")
-                                                    {
-                                                        <span class="label label-success">Open</span>
-                                                    }
-                                                    else
-                                                    {
-                                                        <span class="label label-warning">Closed</span>
-                                                    }
-                                                </td>
-                                                <td align="center" style="vertical-align:middle;"><a href='@Url.Action("CouponDetails", "Coupon", new { Id = items.Coupon_Id})' class="btn btn-default">Edit</a></td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row able-responsive tablealign">
+                <table class="tab-score" data-toggle="table" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                    <thead class="thd">
+                        <tr>
+                            <th class="headeralign" data-sortable="true">Coupon Name</th>
+                            <th class="headeralign" data-sortable="true">Start Date</th>
+                            <th class="headeralign" data-sortable="true">End Date</th>
+                            <th class="headeralign" data-sortable="true">Status</th>
+                            <th class="headeralign" data-sortable="true">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var items in Model)
+                        {
+                            <tr>
+                                <td align="center" style="vertical-align:middle;">@items.Coupon_Name</td>
+                                <td align="center" style="vertical-align:middle;">@items.Coupon_StartDate.ToString("dd/MM/yyyy")</td>
+                                <td align="center" style="vertical-align:middle;">@items.Coupon_EndDate.ToString("dd/MM/yyyy")</td>
+                                <td align="center" style="vertical-align:middle;">
+                                    @if (@items.Coupon_Status == "1")
+                                    {
+                                        <span class="label label-success">Open</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-warning">Closed</span>
+                                    }
+                                </td>
+                                <td align="center" style="vertical-align:middle;"><a href='@Url.Action("CouponDetails", "Coupon", new { Id = items.Coupon_Id})' class="btn btn-default">Edit</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
+        <div>
+        </div>
     </div>
-
 </div>
+
 
 
