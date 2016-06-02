@@ -6,15 +6,16 @@
 
 <div class="right_col" role="main">
     <div class="row">
-        <div class="col-md-9 shadow">
+        <div class="col-md-8 shadow col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading" id="btnresponsive" style="background-color: #23527c; color:white; padding-bottom: 30px;">
-                    <div class="col-md-6 col-md-offset-0">
-                        <h2 class="panel-title texttrans ">
-                            <span class="fontstyle pull-left">Edit Items Details</span><a href="#" data-toggle="modal" data-target="#Announcement"></a>
-                        </h2>
-                    </div>
+                
+
+                <div class="panel-heading panelPading" id="panelbackcolor">
+                    &nbsp;<i class="fa fa-pencil-square-o"></i>&nbsp;Edit Items Details
+
                 </div>
+
+
                 @using (Html.BeginForm("UpdateItem", "GiftItems", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.TextBoxFor(m => m.Item_ID, new { @type = "hidden" })
