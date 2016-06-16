@@ -17,3 +17,4 @@ D:\BAG\BAG.Models\bin\Debug\BAG.Models.pdb
 D:\BAG\BAG.Models\obj\Debug\BAG.Models.csprojResolveAssemblyReference.cache
 D:\BAG\BAG.Models\obj\Debug\BAG.Models.dll
 D:\BAG\BAG.Models\obj\Debug\BAG.Models.pdb
+D:\c#\BAG\Admin\BAG.Models\obj\Debug\BAG.Models.csprojResolveAssemblyReference.cache
