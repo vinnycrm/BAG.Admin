@@ -18,5 +18,29 @@ namespace Admin.Controllers
         {
             return View();
         }
+        public ActionResult AddVendors()
+        {
+            return View();
+        }
+        public ActionResult Edit()
+        {
+            return View();
+        }
+        public ActionResult Category()
+        {
+            return View();
+        }
+        public ActionResult EditCategory()
+        {
+            return View();
+        }
+        public ActionResult Products()
+        {
+            return View();
+        }
+        public ActionResult EditProducts()
+        {
+            return View();
+        }
     }
 }

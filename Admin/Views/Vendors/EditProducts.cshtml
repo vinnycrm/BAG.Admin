@@ -1,0 +1,143 @@
+﻿
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<div class="right_col" role="main">
+
+    <div class="row">
+
+
+        <div class="col-md-10 shadow col-md-offset-1">
+            <div class="panel panel-default">
+
+                <div class="panel-heading panelPading" id="panelbackcolor">
+                    &nbsp;<i class="fa fa-pencil-square" aria-hidden="true"></i>&nbsp;Edit Products
+                  
+                </div>
+                <form action="/GiftItems/AddNewItem" enctype="multipart/form-data" method="post">
+                    <div class="panel-body" style="background-color:whitesmoke;">
+                        <div id="custom-search-inputb">
+                            <div class="form-group  col-md-offset-3 col-md-5">
+                                <label>Choose Categorie:</label>
+                                <select class="form-control">
+                                    <option>Choose option</option>
+                                    <option>Option one</option>
+                                    <option>Option two</option>
+                                    <option>Option three</option>
+                                    <option>Option four</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div id="custom-search-inputb">
+                            <div class="form-group  col-md-offset-3 col-md-5">
+                                <label>Product Name:</label>
+                                <input class="form-control search-query form-control" id="Supply Location" name="Supply Location" type="text" value="">
+                            </div>
+                        </div>
+                        <div id="custom-search-inputb ">
+                            <div class="form-group col-md-offset-3 col-md-5">
+
+                                <label for="Other Details">Description:</label><div class="clear"></div>
+                                <textarea class="form-control" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div id="custom-search-inputb ">
+                            <div class="form-group  col-md-offset-3 col-md-5">
+                                <label>Product Picture:</label>
+                                <div class="input-group image-preview">
+                                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                                    <span class="input-group-btn">
+                                        <!-- image-preview-clear button -->
+                                        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                            <span class="glyphicon glyphicon-remove"></span> Clear
+                                        </button>
+                                        <!-- image-preview-input -->
+                                        <div class="btn btn-default image-preview-input">
+                                            <span class="glyphicon glyphicon-folder-open"></span>
+                                            <span class="image-preview-input-title">Browse</span>
+                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" /> <!-- rename it -->
+                                        </div>
+                                    </span>
+                                </div><!-- /input-group image-preview [TO HERE]-->
+                            </div>
+                        </div>
+                        <div id="custom-search-inputb ">
+                            <div class="form-group  col-md-offset-3 col-md-5">
+                                <p class="warning red" id="ErrorMsg"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xs-6 col-sm-6 col-md-offset-4" id="register-submit" style="position:relative;top:10px;">
+                            <input type="submit" value="Submit" class="btn btn-primary btn-md" onclick="return AddItemsSubmit()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-default buttoncolor " data-backdrop="static" data-keyboard="false">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        $(document).on('click', '#close-preview', function () {
+            $('.image-preview').popover('hide');
+            // Hover befor close the preview
+            $('.image-preview').hover(
+                function () {
+                    $('.image-preview').popover('show');
+                },
+                 function () {
+                     $('.image-preview').popover('hide');
+                 }
+            );
+        });
+
+        $(function () {
+            // Create the close button
+            var closebtn = $('<button/>', {
+                type: "button",
+                text: 'x',
+                id: 'close-preview',
+                style: 'font-size: initial;',
+            });
+            closebtn.attr("class", "close pull-right");
+            // Set the popover default content
+            $('.image-preview').popover({
+                trigger: 'manual',
+                html: true,
+                title: "<strong>Preview</strong>" + $(closebtn)[0].outerHTML,
+                content: "There's no image",
+                placement: 'bottom'
+            });
+            // Clear event
+            $('.image-preview-clear').click(function () {
+                $('.image-preview').attr("data-content", "").popover('hide');
+                $('.image-preview-filename').val("");
+                $('.image-preview-clear').hide();
+                $('.image-preview-input input:file').val("");
+                $(".image-preview-input-title").text("Browse");
+            });
+            // Create the preview image
+            $(".image-preview-input input:file").change(function () {
+                var img = $('<img/>', {
+                    id: 'dynamic',
+                    width: 150,
+                    height: 130,
+                    left: 150
+                });
+                var file = this.files[0];
+                var reader = new FileReader();
+                // Set preview image into the popover data-content
+                reader.onload = function (e) {
+                    $(".image-preview-input-title").text("Change");
+                    $(".image-preview-clear").show();
+                    $(".image-preview-filename").val(file.name);
+                    img.attr('src', e.target.result);
+                    $(".image-preview").attr("data-content", $(img)[0].outerHTML).popover("show");
+                }
+                reader.readAsDataURL(file);
+            });
+        });
+    </script>
+
+</div>

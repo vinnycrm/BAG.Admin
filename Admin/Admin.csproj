@@ -358,6 +358,12 @@
     <Content Include="Views\Vendors\VendorsProfile.cshtml" />
     <Content Include="Views\Tickets\Index.cshtml" />
     <Content Include="Views\Coupon\Index.cshtml" />
+    <Content Include="Views\Vendors\AddVendors.cshtml" />
+    <Content Include="Views\Vendors\Edit.cshtml" />
+    <Content Include="Views\Vendors\Category.cshtml" />
+    <Content Include="Views\Vendors\EditCategory.cshtml" />
+    <Content Include="Views\Vendors\Products.cshtml" />
+    <Content Include="Views\Vendors\EditProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BAG.BusinessLogic\BAG.BusinessLogic.csproj">
